@@ -41,7 +41,7 @@ docker run -d -p 8080:80 ghcr.io/openbox7681/security-quiz:latest
 
 ## Question bank
 
-**311 questions total** — 8 original + 303 SY0-701 exam-bank items (ids `1001`–`1305`), each with bilingual explanations.
+**714 questions total** — 8 original + 706 SY0-701 exam-bank items (ids `1001`–`1708`), each with bilingual explanations.
 
 ### Question schema
 
