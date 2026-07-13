@@ -127,6 +127,16 @@
             border-color: var(--primary);
             background-color: #eff6ff;
         }
+        .multi-hint {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            background-color: #eff6ff;
+            border-radius: 6px;
+            padding: 4px 10px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
         .btn-submit {
             background-color: var(--primary);
             color: white;
@@ -423,6 +433,7 @@ function render() {
 
         const tagsHtml = (item.tags || []).map(t => `<span class="badge">${t}</span>`).join('');
 
+        const isMulti = (item.correct || '').length > 1;
         let optionsHtml = '';
         for (const [key, value] of Object.entries(item.options)) {
             optionsHtml += `
@@ -441,6 +452,7 @@ function render() {
                 <button class="btn-copy" data-copy="${item.id}" onclick="copyQuestion(${item.id})" title="複製題目與答案，貼給另一個 AI 詳解">📋 複製</button>
             </div>
             <div class="question-text">${item.q}</div>
+            ${isMulti ? '<div class="multi-hint">☑️ 複選題：可選擇多個選項，全部答對才算對</div>' : ''}
             <ul class="options-list">${optionsHtml}</ul>
             <button class="btn-submit" onclick="checkAnswer(${item.id})">送出答案</button>
             <div class="explanation-zone" id="exp-${item.id}"></div>
@@ -448,11 +460,11 @@ function render() {
         attachDragHandlers(card);
         container.appendChild(card);
 
-        // 若使用者先前已作答，重繪後恢復選取狀態
-        if (userAnswers[item.id]) {
-            const t = card.querySelector(`.option-item[data-key="${userAnswers[item.id]}"]`);
+        // 若使用者先前已選取，重繪後恢復選取狀態（支援複選）
+        (userAnswers[item.id] || []).forEach(k => {
+            const t = card.querySelector(`.option-item[data-key="${k}"]`);
             if (t) t.classList.add('selected');
-        }
+        });
         // 若此題已作答，重繪後回填詳解
         if (results[item.id] !== undefined) showExplanation(item);
     });
@@ -637,34 +649,47 @@ function exportQuestions() {
 }
 
 /* ---------- 作答邏輯 ---------- */
-const userAnswers = {};   // qId -> 使用者選的選項
+const userAnswers = {};   // qId -> 使用者選的選項（字母陣列，單選/複選皆用陣列）
 const results = {};       // qId -> 是否答對（true/false）
 
 function selectOption(qId, key) {
     if (results[qId] !== undefined) return;   // 已作答就鎖定
+    const item = quizData.find(q => q.id === qId);
+    const isMulti = item && (item.correct || '').length > 1;
     const card = document.getElementById(`card-${qId}`);
-    card.querySelectorAll('.option-item').forEach(item => item.classList.remove('selected'));
-    const target = card.querySelector(`.option-item[data-key="${key}"]`);
-    target.classList.add('selected');
-    userAnswers[qId] = key;
+    let sel = userAnswers[qId] || [];
+    if (isMulti) {
+        // 複選：切換該選項
+        sel = sel.includes(key) ? sel.filter(k => k !== key) : [...sel, key];
+    } else {
+        // 單選：只保留一個
+        sel = [key];
+    }
+    userAnswers[qId] = sel;
+    card.querySelectorAll('.option-item').forEach(el => {
+        el.classList.toggle('selected', sel.includes(el.dataset.key));
+    });
 }
 
 function checkAnswer(qId) {
     if (results[qId] !== undefined) return;   // 避免重複計分
-    const userAns = userAnswers[qId];
-    if (!userAns) {
-        alert("請先選擇一個答案！");
+    const sel = userAnswers[qId] || [];
+    if (!sel.length) {
+        alert("請先選擇答案！");
         return;
     }
     const item = quizData.find(q => q.id === qId);
-    results[qId] = (userAns === item.correct);
+    // 將使用者選項與正確答案都排序後比對整組（複選需全對）
+    const userSet = [...sel].sort().join('');
+    const correctSet = item.correct.split('').sort().join('');
+    results[qId] = (userSet === correctSet);
     showExplanation(item);
     updateScore();
 }
 
 // 顯示詳解（重繪後也用來回填已作答題目）
 function showExplanation(item) {
-    const userAns = userAnswers[item.id];
+    const userAns = (userAnswers[item.id] || []).slice().sort().join('') || '（未作答）';
     const correct = results[item.id];
     const expZone = document.getElementById(`exp-${item.id}`);
     if (!expZone) return;
