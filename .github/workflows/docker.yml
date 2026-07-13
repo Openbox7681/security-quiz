@@ -1,0 +1,92 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  validate:
+    name: Validate question bank
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate JSON banks (parse + no duplicate ids)
+        run: |
+          python3 - <<'PY'
+          import json, glob, sys
+          files = sorted(glob.glob("src/questions*.json"))
+          assert files, "no question files found"
+          seen, total = {}, 0
+          for f in files:
+              data = json.load(open(f, encoding="utf-8"))
+              total += len(data)
+              for q in data:
+                  for k in ("id", "q", "options", "correct", "exp"):
+                      assert k in q, f"{f}: item missing '{k}'"
+                  qid = q["id"]
+                  if qid in seen:
+                      sys.exit(f"duplicate id {qid} in {f} and {seen[qid]}")
+                  seen[qid] = f
+                  assert q["correct"], f"{f}: id {qid} has empty correct"
+                  for letter in q["correct"]:
+                      assert letter in q["options"], f"{f}: id {qid} correct '{letter}' not in options"
+              print(f"OK  {f}: {len(data)} questions")
+          print(f"TOTAL: {total} questions across {len(files)} files, no duplicate ids")
+          PY
+
+      - name: Syntax-check index.html JS
+        run: |
+          node -e "
+          const fs = require('fs');
+          const html = fs.readFileSync('src/index.html', 'utf8');
+          const m = [...html.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)];
+          if (!m.length) throw new Error('no inline script found');
+          const vm = require('vm');
+          m.forEach((s, i) => { new vm.Script(s[1], { filename: 'index.html#script' + i }); });
+          console.log('index.html: ' + m.length + ' inline script block(s) parsed OK');
+          "
+
+  docker:
+    name: Build and publish image
+    needs: validate
+    runs-on: ubuntu-latest
+    # Only publish on pushes to main, not on PRs.
+    if: github.event_name != 'pull_request'
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels)
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=raw,value=latest
+            type=sha,format=short
+            type=ref,event=branch
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}

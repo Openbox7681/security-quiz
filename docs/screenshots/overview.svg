@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="380" viewBox="0 0 860 380" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+  <rect width="860" height="380" rx="10" fill="#0f172a"/>
+  <rect x="16" y="16" width="828" height="348" rx="8" fill="#1e293b"/>
+  <!-- header -->
+  <text x="40" y="58" fill="#f8fafc" font-size="22" font-weight="700">CompTIA Security+ 練習題庫</text>
+  <text x="40" y="82" fill="#94a3b8" font-size="13">SY0-701 · 311 題 · 雙語詳解</text>
+  <!-- toolbar row 1: sizes -->
+  <text x="40" y="126" fill="#cbd5e1" font-size="13">出題數量</text>
+  <g>
+    <rect x="110" y="110" width="52" height="26" rx="13" fill="#2563eb"/>
+    <text x="136" y="128" fill="#fff" font-size="13" text-anchor="middle">20</text>
+    <rect x="170" y="110" width="52" height="26" rx="13" fill="#334155"/>
+    <text x="196" y="128" fill="#cbd5e1" font-size="13" text-anchor="middle">50</text>
+    <rect x="230" y="110" width="52" height="26" rx="13" fill="#334155"/>
+    <text x="256" y="128" fill="#cbd5e1" font-size="13" text-anchor="middle">100</text>
+    <rect x="290" y="110" width="60" height="26" rx="13" fill="#334155"/>
+    <text x="320" y="128" fill="#cbd5e1" font-size="13" text-anchor="middle">全部</text>
+  </g>
+  <text x="600" y="128" fill="#4ade80" font-size="13" text-anchor="end">答對 12 / 已作答 15（共 20 題）</text>
+  <rect x="620" y="110" width="90" height="26" rx="13" fill="#0ea5e9"/>
+  <text x="665" y="128" fill="#fff" font-size="12" text-anchor="middle">重新抽題</text>
+  <!-- toolbar row 2: sort/import -->
+  <text x="40" y="166" fill="#cbd5e1" font-size="13">排序</text>
+  <rect x="90" y="150" width="70" height="24" rx="12" fill="#334155"/>
+  <text x="125" y="167" fill="#cbd5e1" font-size="12" text-anchor="middle">依 ID</text>
+  <rect x="168" y="150" width="70" height="24" rx="12" fill="#334155"/>
+  <text x="203" y="167" fill="#cbd5e1" font-size="12" text-anchor="middle">洗牌</text>
+  <rect x="700" y="150" width="60" height="24" rx="12" fill="#334155"/>
+  <text x="730" y="167" fill="#cbd5e1" font-size="12" text-anchor="middle">匯入</text>
+  <rect x="766" y="150" width="60" height="24" rx="12" fill="#334155"/>
+  <text x="796" y="167" fill="#cbd5e1" font-size="12" text-anchor="middle">匯出</text>
+  <!-- question card -->
+  <rect x="40" y="192" width="780" height="150" rx="8" fill="#0f172a" stroke="#334155"/>
+  <text x="60" y="222" fill="#64748b" font-size="12">⋮⋮  #1213 · Cryptography</text>
+  <text x="60" y="248" fill="#e2e8f0" font-size="14">Which of the following would be the most appropriate way to protect data in transit?</text>
+  <rect x="60" y="262" width="360" height="28" rx="6" fill="#166534"/>
+  <text x="74" y="281" fill="#dcfce7" font-size="13">C. TLS 1.3  ✓</text>
+  <rect x="430" y="262" width="360" height="28" rx="6" fill="#1e293b"/>
+  <text x="444" y="281" fill="#94a3b8" font-size="13">D. AES-256</text>
+  <text x="60" y="316" fill="#93c5fd" font-size="12">詳解：TLS 1.3 provides strong encryption for data in transit. 保護傳輸中資料應用 TLS 1.3。</text>
+</svg>
