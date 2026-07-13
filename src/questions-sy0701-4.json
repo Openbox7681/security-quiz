@@ -1,0 +1,1012 @@
+[
+    {
+        "id": 1151,
+        "tags": [
+            "SY0-701",
+            "Awareness"
+        ],
+        "q": "A technician wants to improve the situational and environmental awareness of existing users as they transition from remote to in-office work. Which of the following is the best option?",
+        "options": {
+            "A": "Send out periodic security reminders.",
+            "B": "Update the content of new hire documentation.",
+            "C": "Modify the content of recurring training.",
+            "D": "Implement a phishing campaign"
+        },
+        "correct": "C",
+        "exp": "Modify recurring training content to improve returning users' awareness. 調整現有的定期訓練（recurring training）內容以符合新環境。"
+    },
+    {
+        "id": 1152,
+        "tags": [
+            "SY0-701",
+            "Reporting"
+        ],
+        "q": "A newly appointed board member wants the board of directors to receive a quarterly report detailing the number of incidents that impacted the organization. The systems administrator is creating a way to present the data. Which of the following should the systems administrator use?",
+        "options": {
+            "A": "Packet captures",
+            "B": "Vulnerability scans",
+            "C": "Metadata",
+            "D": "Dashboard"
+        },
+        "correct": "D",
+        "exp": "A dashboard best presents incident counts to the board. 向董事會呈現事件數量摘要 → 儀表板（Dashboard）。"
+    },
+    {
+        "id": 1153,
+        "tags": [
+            "SY0-701",
+            "Supply Chain",
+            "複選"
+        ],
+        "q": "Which of the following are the most likely vectors for the unauthorized or unintentional inclusion of vulnerable code in a software company's final software releases? (Choose two).",
+        "options": {
+            "A": "Certificate mismatch",
+            "B": "Use of penetration-testing utilities",
+            "C": "Weak passwords",
+            "D": "Included third-party libraries",
+            "E": "Vendors/supply chain",
+            "F": "Outdated anti-malware software"
+        },
+        "correct": "DE",
+        "exp": "Third-party libraries and vendors/supply chain are the likely vectors for vulnerable code. 含第三方函式庫(D) + 廠商/供應鏈(E) 是導入易受攻擊程式碼的常見途徑。"
+    },
+    {
+        "id": 1154,
+        "tags": [
+            "SY0-701",
+            "VoIP",
+            "複選"
+        ],
+        "q": "Which of the following are common VoIP-associated vulnerabilities? (Choose two).",
+        "options": {
+            "A": "SPIM",
+            "B": "Vishing",
+            "C": "VLAN hopping",
+            "D": "Phishing",
+            "E": "DHCP snooping",
+            "F": "Tailgating"
+        },
+        "correct": "AB",
+        "exp": "SPIM and vishing are common VoIP-associated vulnerabilities. VoIP 弱點 = 即時訊息垃圾（SPIM）+ 語音釣魚（Vishing）。"
+    },
+    {
+        "id": 1155,
+        "tags": [
+            "SY0-701",
+            "Shadow IT"
+        ],
+        "q": "Which of the following is most likely associated with introducing vulnerabilities on a corporate network by the deployment of unapproved software?",
+        "options": {
+            "A": "Hacktivists",
+            "B": "Script kiddies",
+            "C": "Competitors",
+            "D": "Shadow IT"
+        },
+        "correct": "D",
+        "exp": "Deploying unapproved software is associated with shadow IT. 部署未經批准的軟體 = 影子 IT（Shadow IT）。"
+    },
+    {
+        "id": 1156,
+        "tags": [
+            "SY0-701",
+            "Hardening"
+        ],
+        "q": "Local guidelines require that all information systems meet a minimum security baseline to be compliant. Which of the following can security administrators use to assess their system configurations against the baseline?",
+        "options": {
+            "A": "SOAR playbook",
+            "B": "Security control matrix",
+            "C": "Risk management framework",
+            "D": "Benchmarks"
+        },
+        "correct": "D",
+        "exp": "Benchmarks (e.g., CIS) assess configurations against a baseline. 評估設定是否符合最低安全基線 → 基準（Benchmarks，如 CIS）。"
+    },
+    {
+        "id": 1157,
+        "tags": [
+            "SY0-701",
+            "Attacks"
+        ],
+        "q": "A company's public-facing website https://www.organization.com has IP 166.18.75.6. Over the past hour the SOC received reports of the homepage displaying incorrect information. An nslookup shows the site pointing to 151.191.122.115. Which of the following is occurring?",
+        "options": {
+            "A": "DoS attack",
+            "B": "ARP poisoning",
+            "C": "DNS spoofing",
+            "D": "NXDOMAIN attack"
+        },
+        "correct": "C",
+        "exp": "A domain resolving to the wrong IP indicates DNS spoofing / cache poisoning. 網域被解析到錯誤(攻擊者)IP = DNS 欺騙/快取毒化（DNS spoofing）。"
+    },
+    {
+        "id": 1158,
+        "tags": [
+            "SY0-701",
+            "Attacks"
+        ],
+        "q": "An employee fell for a phishing scam, which allowed an attacker to gain access to a company PC. The attacker scraped the PC's memory to find other credentials. Without cracking these credentials, the attacker used them to move laterally through the corporate network. Which of the following describes this type of attack?",
+        "options": {
+            "A": "Privilege escalation",
+            "B": "Buffer overflow",
+            "C": "SQL injection",
+            "D": "Pass-the-hash"
+        },
+        "correct": "D",
+        "exp": "Reusing scraped hashes without cracking them is a pass-the-hash attack. 直接用記憶體中的雜湊值認證、免破解密碼並橫向移動 = 傳遞雜湊（Pass-the-hash）。"
+    },
+    {
+        "id": 1159,
+        "tags": [
+            "SY0-701",
+            "Cloud"
+        ],
+        "q": "Which of the following is a common source of unintentional corporate credential leakage in cloud environments?",
+        "options": {
+            "A": "Code repositories",
+            "B": "Dark web",
+            "C": "Threat feeds",
+            "D": "State actors",
+            "E": "Vulnerability databases"
+        },
+        "correct": "A",
+        "exp": "Credentials committed to code repositories are a common cloud leak source. 開發者不慎把 API key/密碼推到公開儲存庫 → 程式碼儲存庫（Code repositories）。"
+    },
+    {
+        "id": 1160,
+        "tags": [
+            "SY0-701",
+            "PKI"
+        ],
+        "q": "A certificate vendor notified a company that recently invalidated certificates may need to be updated. Which of the following mechanisms should a security administrator use to determine whether the certificates installed on the company's machines need to be updated?",
+        "options": {
+            "A": "SCEP",
+            "B": "OCSP",
+            "C": "CSR",
+            "D": "CRL"
+        },
+        "correct": "D",
+        "exp": "Use a CRL to check installed certificates against the revoked list. 批次比對所有已安裝憑證與撤銷清單 → 憑證撤銷清單（CRL）。"
+    },
+    {
+        "id": 1161,
+        "tags": [
+            "SY0-701",
+            "Authentication"
+        ],
+        "q": "A security analyst needs to harden access to a network. One of the requirements is to authenticate users with smart cards. Which of the following should the analyst enable to best meet this requirement?",
+        "options": {
+            "A": "CHAP",
+            "B": "PEAP",
+            "C": "MS-CHAPv2",
+            "D": "EAP-TLS"
+        },
+        "correct": "D",
+        "exp": "EAP-TLS uses smart-card certificates for authentication. 以智慧卡內憑證認證 → EAP-TLS（憑證式驗證）。"
+    },
+    {
+        "id": 1162,
+        "tags": [
+            "SY0-701",
+            "Endpoint / EDR"
+        ],
+        "q": "A recent malware outbreak across a subnet included successful rootkit installations on many PCs, ensuring persistence by rendering remediation efforts ineffective. Which of the following would best detect the presence of a rootkit in the future?",
+        "options": {
+            "A": "FDE",
+            "B": "NIDS",
+            "C": "EDR",
+            "D": "DLP"
+        },
+        "correct": "C",
+        "exp": "EDR best detects rootkits via continuous endpoint monitoring. 持續監控端點行為以偵測 rootkit → 端點偵測與回應（EDR）。"
+    },
+    {
+        "id": 1163,
+        "tags": [
+            "SY0-701",
+            "Resilience / Power"
+        ],
+        "q": "An organization is building a single virtual environment that will host customer applications and data that require availability at all times. The data center hosting the environment will provide generator power and ISP services. Which of the following is the best solution to support the organization's requirement?",
+        "options": {
+            "A": "NIC teaming",
+            "B": "Cloud backups",
+            "C": "A load balancer appliance",
+            "D": "UPS"
+        },
+        "correct": "D",
+        "exp": "A UPS supplies instant power during the generator's startup gap for zero downtime. 發電機啟動有空窗,需 UPS 提供即時不斷電 → 確保零中斷可用性。"
+    },
+    {
+        "id": 1164,
+        "tags": [
+            "SY0-701",
+            "Cloud / CASB"
+        ],
+        "q": "A company moving to the cloud wants technology that prevents users from downloading company applications for personal use, restricts data that is uploaded, and provides visibility into which applications are used across the company. Which of the following solutions will best meet these requirements?",
+        "options": {
+            "A": "An NGFW",
+            "B": "A CASB",
+            "C": "Application whitelisting",
+            "D": "An NG-SWG"
+        },
+        "correct": "B",
+        "exp": "A CASB gives visibility and control over cloud app usage and uploads. 雲端應用控管+上傳限制+使用可視化 → 雲端存取安全代理（CASB）。"
+    },
+    {
+        "id": 1165,
+        "tags": [
+            "SY0-701",
+            "IAM / Federation"
+        ],
+        "q": "An internet company created a new collaboration application. To expand the user base, the company wants to implement an option that allows users to log in to the application with the credentials of other popular websites. Which of the following should the company implement?",
+        "options": {
+            "A": "SSO",
+            "B": "CHAP",
+            "C": "802.1x",
+            "D": "OpenID"
+        },
+        "correct": "D",
+        "exp": "OpenID lets users log in with other popular sites' credentials. 用其他熱門網站(Google/FB)帳號登入 → OpenID（第三方身份提供者)。"
+    },
+    {
+        "id": 1166,
+        "tags": [
+            "SY0-701",
+            "Key Management"
+        ],
+        "q": "A security architect at a large, multinational organization is concerned about managing multiple encryption keys securely in a multicloud environment. The architect wants a solution with reduced latency that incorporates the organization's existing keys and maintains consistent, centralized control regardless of data location. Which of the following would best meet the architect's objectives?",
+        "options": {
+            "A": "Trusted Platform Module",
+            "B": "IaaS",
+            "C": "HSMaaS",
+            "D": "PaaS"
+        },
+        "correct": "C",
+        "exp": "HSMaaS centrally manages keys across multiple clouds and can import existing keys. 多雲集中管理金鑰、可帶入既有金鑰 → HSM 即服務（HSMaaS）。"
+    },
+    {
+        "id": 1167,
+        "tags": [
+            "SY0-701",
+            "Cryptography"
+        ],
+        "q": "In order to strengthen a password and prevent a hacker from cracking it, a random string of 36 characters was added to the password. Which of the following best describes this technique?",
+        "options": {
+            "A": "Key stretching",
+            "B": "Tokenization",
+            "C": "Data masking",
+            "D": "Salting"
+        },
+        "correct": "D",
+        "exp": "Adding a random string before hashing a password is salting. 在密碼加隨機字串再雜湊 = 加鹽（Salting）。"
+    },
+    {
+        "id": 1168,
+        "tags": [
+            "SY0-701",
+            "Access Control"
+        ],
+        "q": "A user is attempting to patch a critical system, but the patch fails to transfer. Which of the following access controls is most likely inhibiting the transfer?",
+        "options": {
+            "A": "Attribute-based",
+            "B": "Time of day",
+            "C": "Role-based",
+            "D": "Least privilege"
+        },
+        "correct": "D",
+        "exp": "Insufficient permissions (least privilege) can block a patch transfer. 帳號權限不足導致傳輸失敗 → 最小權限（Least privilege）限制。"
+    },
+    {
+        "id": 1169,
+        "tags": [
+            "SY0-701",
+            "Endpoint / EDR"
+        ],
+        "q": "Which of the following is used to protect a computer from viruses, malware, and Trojans being installed and moving laterally across the network?",
+        "options": {
+            "A": "IDS",
+            "B": "ACL",
+            "C": "EDR",
+            "D": "NAC"
+        },
+        "correct": "C",
+        "exp": "EDR detects and prevents malware from installing and moving laterally. 偵測並防止端點惡意程式安裝與橫向移動 → EDR。"
+    },
+    {
+        "id": 1170,
+        "tags": [
+            "SY0-701",
+            "Firewall"
+        ],
+        "q": "A systems administrator set up a perimeter firewall but continues to notice suspicious connections between internal endpoints. Which of the following should be set up in order to mitigate the threat posed by the suspicious activity?",
+        "options": {
+            "A": "Host-based firewall",
+            "B": "Web application firewall",
+            "C": "Access control list",
+            "D": "Application allow list"
+        },
+        "correct": "A",
+        "exp": "A host-based firewall mitigates suspicious traffic between internal endpoints. 周界防火牆管不到內部端點間流量 → 主機型防火牆（Host-based firewall）。"
+    },
+    {
+        "id": 1171,
+        "tags": [
+            "SY0-701",
+            "Cloud"
+        ],
+        "q": "A business received a small grant to migrate its infrastructure to an off-premises solution. Which of the following should be considered first?",
+        "options": {
+            "A": "Security of cloud providers",
+            "B": "Cost of implementation",
+            "C": "Ability of engineers",
+            "D": "Security of architecture"
+        },
+        "correct": "D",
+        "exp": "When migrating to the cloud, consider security of the architecture first. 遷移雲端首重架構安全（Security of architecture），是規劃階段核心。"
+    },
+    {
+        "id": 1172,
+        "tags": [
+            "SY0-701",
+            "Resilience"
+        ],
+        "q": "A company is planning a disaster recovery site and needs to ensure that a single natural disaster would not result in the complete loss of regulated backup data. Which of the following should the company consider?",
+        "options": {
+            "A": "Geographic dispersion",
+            "B": "Platform diversity",
+            "C": "Hot site",
+            "D": "Load balancing"
+        },
+        "correct": "A",
+        "exp": "Geographic dispersion keeps a single disaster from destroying all backups. 備份放不同地理位置以防單一天災全毀 → 地理分散（Geographic dispersion）。"
+    },
+    {
+        "id": 1173,
+        "tags": [
+            "SY0-701",
+            "Attacks / Exfiltration"
+        ],
+        "q": "A security analyst receives alerts about an internal system sending a large amount of unusual DNS queries to systems on the internet over short periods of time during non-business hours. Which of the following is most likely occurring?",
+        "options": {
+            "A": "A worm is propagating across the network.",
+            "B": "Data is being exfiltrated.",
+            "C": "A logic bomb is deleting data.",
+            "D": "Ransomware is encrypting files."
+        },
+        "correct": "B",
+        "exp": "Large, unusual DNS queries off-hours indicate data exfiltration (DNS tunneling). 用 DNS 通道大量對外查詢 = 資料外洩（Data exfiltration，DNS tunneling）。"
+    },
+    {
+        "id": 1174,
+        "tags": [
+            "SY0-701",
+            "Social Engineering"
+        ],
+        "q": "An employee receives a text message from an unknown number claiming to be the company's CEO and asking the employee to purchase several gift cards. Which of the following types of attacks does this describe?",
+        "options": {
+            "A": "Vishing",
+            "B": "Smishing",
+            "C": "Pretexting",
+            "D": "Phishing"
+        },
+        "correct": "B",
+        "exp": "A text impersonating the CEO asking for gift cards is smishing. 簡訊(SMS)冒充 CEO 詐騙 = 簡訊釣魚（Smishing）。"
+    },
+    {
+        "id": 1175,
+        "tags": [
+            "SY0-701",
+            "Risk / Asset Mgmt"
+        ],
+        "q": "Which of the following would help ensure a security analyst is able to accurately measure the overall risk to an organization when a new vulnerability is disclosed?",
+        "options": {
+            "A": "A full inventory of all hardware and software",
+            "B": "Documentation of system classifications",
+            "C": "A list of system owners and their departments",
+            "D": "Third-party risk assessment documentation"
+        },
+        "correct": "A",
+        "exp": "A full hardware/software inventory lets you gauge which systems a new vulnerability affects. 有完整軟硬體清單才能判斷哪些系統受新漏洞影響 → 全資產清單。"
+    },
+    {
+        "id": 1176,
+        "tags": [
+            "SY0-701",
+            "Hardening / GPO"
+        ],
+        "q": "A systems administrator is changing the password policy within an enterprise environment and wants this update implemented on all systems as quickly as possible. Which of the following operating system security measures will the administrator most likely use?",
+        "options": {
+            "A": "Deploying PowerShell scripts",
+            "B": "Pushing GPO update",
+            "C": "Enabling PAP",
+            "D": "Updating EDR profiles"
+        },
+        "correct": "B",
+        "exp": "Pushing a GPO update quickly enforces the new password policy domain-wide. 在網域中快速統一套用密碼政策 → 推送群組原則物件（GPO）。"
+    },
+    {
+        "id": 1177,
+        "tags": [
+            "SY0-701",
+            "Hardening",
+            "複選"
+        ],
+        "q": "An administrator needs to perform server hardening before deployment. Which of the following steps should the administrator take? (Select two).",
+        "options": {
+            "A": "Disable default accounts.",
+            "B": "Add the server to the asset inventory.",
+            "C": "Remove unnecessary services.",
+            "D": "Document default passwords.",
+            "E": "Send server logs to the SIEM.",
+            "F": "Join the server to the corporate domain."
+        },
+        "correct": "AC",
+        "exp": "Server hardening: disable default accounts and remove unnecessary services. 停用預設帳號(A) + 移除不必要服務(C) 以縮小攻擊面。"
+    },
+    {
+        "id": 1178,
+        "tags": [
+            "SY0-701",
+            "Security Controls"
+        ],
+        "q": "Visitors to a secured facility are required to check in with a photo ID and enter the facility through an access control vestibule. Which of the following best describes this form of security control?",
+        "options": {
+            "A": "Physical",
+            "B": "Managerial",
+            "C": "Technical",
+            "D": "Operational"
+        },
+        "correct": "A",
+        "exp": "A photo ID check and access control vestibule are physical controls. 門禁前廳/照片 ID 屬於實體（Physical）控制。"
+    },
+    {
+        "id": 1179,
+        "tags": [
+            "SY0-701",
+            "Cryptography"
+        ],
+        "q": "A company must ensure sensitive data at rest is rendered unreadable. Which of the following will the company most likely use?",
+        "options": {
+            "A": "Hashing",
+            "B": "Tokenization",
+            "C": "Encryption",
+            "D": "Segmentation"
+        },
+        "correct": "C",
+        "exp": "Encryption renders sensitive data at rest unreadable. 讓靜態資料不可讀且可還原 → 加密（Encryption）。"
+    },
+    {
+        "id": 1180,
+        "tags": [
+            "SY0-701",
+            "Risk Management"
+        ],
+        "q": "Which of the following describes the maximum allowance of accepted risk?",
+        "options": {
+            "A": "Risk indicator",
+            "B": "Risk level",
+            "C": "Risk score",
+            "D": "Risk threshold"
+        },
+        "correct": "D",
+        "exp": "The maximum amount of accepted risk is the risk threshold. 可接受風險的最大上限 = 風險門檻（Risk threshold）。"
+    },
+    {
+        "id": 1181,
+        "tags": [
+            "SY0-701",
+            "Forensics"
+        ],
+        "q": "Which of the following incident response activities ensures evidence is properly handled?",
+        "options": {
+            "A": "E-discovery",
+            "B": "Chain of custody",
+            "C": "Legal hold",
+            "D": "Preservation"
+        },
+        "correct": "B",
+        "exp": "Chain of custody ensures evidence is properly handled. 確保證據處理過程完整可追溯 = 監管鏈（Chain of custody）。"
+    },
+    {
+        "id": 1182,
+        "tags": [
+            "SY0-701",
+            "Risk Management"
+        ],
+        "q": "Which of the following risk management strategies should an enterprise adopt first if a legacy application is critical to business operations and there are preventative controls that are not yet implemented?",
+        "options": {
+            "A": "Mitigate",
+            "B": "Accept",
+            "C": "Transfer",
+            "D": "Avoid"
+        },
+        "correct": "A",
+        "exp": "For a critical legacy app with missing preventative controls, mitigate first. 關鍵舊系統仍有預防控制可補 → 先緩解（Mitigate）。"
+    },
+    {
+        "id": 1183,
+        "tags": [
+            "SY0-701",
+            "Teams"
+        ],
+        "q": "Which of the following teams combines both offensive and defensive testing techniques to protect an organization's critical systems?",
+        "options": {
+            "A": "Red",
+            "B": "Blue",
+            "C": "Purple",
+            "D": "Yellow"
+        },
+        "correct": "C",
+        "exp": "A purple team combines offensive and defensive testing techniques. 結合攻擊(紅)與防禦(藍) = 紫隊（Purple）。"
+    },
+    {
+        "id": 1184,
+        "tags": [
+            "SY0-701",
+            "Agreements"
+        ],
+        "q": "A company is working with a vendor to perform a penetration test. Which of the following includes an estimate about the number of hours required to complete the engagement?",
+        "options": {
+            "A": "SOW",
+            "B": "BPA",
+            "C": "SLA",
+            "D": "NDA"
+        },
+        "correct": "A",
+        "exp": "A SOW includes an estimate of the hours to complete the engagement. 含工時/交付/成本估算 = 工作說明書（SOW）。"
+    },
+    {
+        "id": 1185,
+        "tags": [
+            "SY0-701",
+            "Hardening"
+        ],
+        "q": "The local administrator account for a company's VPN appliance was unexpectedly used to log in to the remote management interface. Which of the following would have most likely prevented this from happening?",
+        "options": {
+            "A": "Using least privilege",
+            "B": "Changing the default password",
+            "C": "Assigning individual user IDs",
+            "D": "Reviewing logs more frequently"
+        },
+        "correct": "B",
+        "exp": "Changing the default password would most likely have prevented the unexpected login. 預設密碼易被猜/公開 → 更改預設密碼可防未預期登入。"
+    },
+    {
+        "id": 1186,
+        "tags": [
+            "SY0-701",
+            "Risk Metrics"
+        ],
+        "q": "Which of the following would be most useful in determining whether the long-term cost to transfer a risk is less than the impact of the risk?",
+        "options": {
+            "A": "ARO",
+            "B": "RTO",
+            "C": "RPO",
+            "D": "ALE",
+            "E": "SLE"
+        },
+        "correct": "D",
+        "exp": "ALE (SLE x ARO) helps compare long-term transfer cost against risk impact. 年度損失預期值 ALE（= SLE × ARO）最適合做長期成本/衝擊比較。"
+    },
+    {
+        "id": 1187,
+        "tags": [
+            "SY0-701",
+            "Vulnerabilities"
+        ],
+        "q": "A security analyst is investigating an application server and discovers that software on the server is behaving abnormally. The software normally runs batch jobs locally and does not generate traffic, but the process is now generating outbound traffic over random high ports. Which of the following vulnerabilities has likely been exploited in this software?",
+        "options": {
+            "A": "Memory injection",
+            "B": "Race condition",
+            "C": "Side loading",
+            "D": "SQL injection"
+        },
+        "correct": "A",
+        "exp": "Software suddenly making outbound traffic suggests exploited memory injection. 程式異常產生外連 → 記憶體注入（Memory injection）在程序記憶體執行惡意碼。"
+    },
+    {
+        "id": 1188,
+        "tags": [
+            "SY0-701",
+            "Physical Security"
+        ],
+        "q": "Which of the following is the best way to secure an on-site data center against intrusion from an insider?",
+        "options": {
+            "A": "Bollards",
+            "B": "Access badge",
+            "C": "Motion sensor",
+            "D": "Video surveillance"
+        },
+        "correct": "B",
+        "exp": "Access badges best secure a data center against insider intrusion. 驗證身份並控管進入受限區 → 門禁卡（Access badge）。"
+    },
+    {
+        "id": 1189,
+        "tags": [
+            "SY0-701",
+            "Access Control"
+        ],
+        "q": "An engineer moved to another team and is unable to access the new team's shared folders while still being able to access the shared folders from the former team. The account was never moved to the new group. Which of the following access controls is most likely causing the lack of access?",
+        "options": {
+            "A": "Role-based",
+            "B": "Discretionary",
+            "C": "Time of day",
+            "D": "Least privilege"
+        },
+        "correct": "A",
+        "exp": "RBAC - the account was never moved to the new team's role/group. RBAC 以角色/群組分配權限,帳號未移到新群組即無新權限。"
+    },
+    {
+        "id": 1190,
+        "tags": [
+            "SY0-701",
+            "CIA Triad"
+        ],
+        "q": "A network administrator is working on a project to deploy a load balancer in the company's cloud environment. Which of the following fundamental security requirements does this project fulfil?",
+        "options": {
+            "A": "Privacy",
+            "B": "Integrity",
+            "C": "Confidentiality",
+            "D": "Availability"
+        },
+        "correct": "D",
+        "exp": "A load balancer fulfills the availability requirement. 負載平衡分散流量、確保服務持續可用 → 可用性（Availability）。"
+    },
+    {
+        "id": 1191,
+        "tags": [
+            "SY0-701",
+            "Physical Security"
+        ],
+        "q": "A technician is deploying a new security camera. Which of the following should the technician do?",
+        "options": {
+            "A": "Configure the correct VLAN.",
+            "B": "Perform a vulnerability scan.",
+            "C": "Disable unnecessary ports.",
+            "D": "Conduct a site survey."
+        },
+        "correct": "D",
+        "exp": "Conduct a site survey before deploying a new security camera. 部署攝影機前先做現場勘查（site survey）評估位置/覆蓋/光線。"
+    },
+    {
+        "id": 1192,
+        "tags": [
+            "SY0-701",
+            "Attacks / DDoS"
+        ],
+        "q": "A company is experiencing a web services outage on the public network. The services are up and available but inaccessible. The network logs show a sudden increase in network traffic that is causing the outage. Which of the following attacks is the organization experiencing?",
+        "options": {
+            "A": "ARP poisoning",
+            "B": "Brute force",
+            "C": "Buffer overflow",
+            "D": "DDoS"
+        },
+        "correct": "D",
+        "exp": "A sudden traffic surge making services unreachable is a DDoS. 服務正常但流量突增塞爆導致無法存取 = 分散式阻斷服務（DDoS）。"
+    },
+    {
+        "id": 1193,
+        "tags": [
+            "SY0-701",
+            "Threat Actors"
+        ],
+        "q": "Which of the following threat actors is the most likely to be motivated by profit?",
+        "options": {
+            "A": "Hacktivist",
+            "B": "Insider threat",
+            "C": "Organized crime",
+            "D": "Shadow IT"
+        },
+        "correct": "C",
+        "exp": "Organized crime is the threat actor most motivated by profit. 以獲利為主要動機 → 組織型犯罪（Organized crime）。"
+    },
+    {
+        "id": 1194,
+        "tags": [
+            "SY0-701",
+            "Logs",
+            "複選"
+        ],
+        "q": "An organization experiences a cybersecurity incident involving a command-and-control server. Which of the following logs should be analyzed to identify the impacted host? (Choose two.)",
+        "options": {
+            "A": "Application",
+            "B": "Authentication",
+            "C": "DHCP",
+            "D": "Network",
+            "E": "Firewall",
+            "F": "Database"
+        },
+        "correct": "DE",
+        "exp": "Analyze network and firewall logs to identify the C2-impacted host. 分析對外 C&C 連線的來源主機 → 網路(Network)與防火牆(Firewall)日誌。"
+    },
+    {
+        "id": 1195,
+        "tags": [
+            "SY0-701",
+            "Pen Test"
+        ],
+        "q": "During a penetration test, a vendor attempts to enter an unauthorized area using an access badge. Which of the following types of tests does this represent?",
+        "options": {
+            "A": "Defensive",
+            "B": "Passive",
+            "C": "Offensive",
+            "D": "Physical"
+        },
+        "correct": "D",
+        "exp": "Using a badge to enter an unauthorized area is a physical test. 用門禁卡嘗試進入未授權區域 = 實體（Physical）測試。"
+    },
+    {
+        "id": 1196,
+        "tags": [
+            "SY0-701",
+            "Cryptography"
+        ],
+        "q": "A systems administrator uses a key to encrypt a message being sent to a peer in a different branch office. The peer then uses the same key to decrypt the message. Which of the following describes this example?",
+        "options": {
+            "A": "Symmetric",
+            "B": "Asymmetric",
+            "C": "Hashing",
+            "D": "Salting"
+        },
+        "correct": "A",
+        "exp": "Using the same key to encrypt and decrypt is symmetric encryption. 加解密用同一把金鑰 = 對稱式（Symmetric）加密。"
+    },
+    {
+        "id": 1197,
+        "tags": [
+            "SY0-701",
+            "NAC / Port Security"
+        ],
+        "q": "A visitor plugs a laptop into a network jack in the lobby and is able to connect to the company's network. Which of the following should be configured on the existing network infrastructure to best prevent this activity?",
+        "options": {
+            "A": "Port security",
+            "B": "Web application firewall",
+            "C": "Transport layer security",
+            "D": "Virtual private network"
+        },
+        "correct": "A",
+        "exp": "Port security limits which devices can connect to a network jack. 在交換器埠上限制允許的 MAC → 埠安全（Port security）。"
+    },
+    {
+        "id": 1198,
+        "tags": [
+            "SY0-701",
+            "Data Handling",
+            "複選"
+        ],
+        "q": "A security administrator is reissuing a former employee's laptop. Which of the following is the best combination of data handling activities for the administrator to perform? (Choose two.)",
+        "options": {
+            "A": "Data retention",
+            "B": "Certification",
+            "C": "Destruction",
+            "D": "Classification",
+            "E": "Sanitization",
+            "F": "Enumeration"
+        },
+        "correct": "BE",
+        "exp": "When reissuing a laptop, sanitize the data and obtain a certification. 重新配發前:淨化資料(Sanitization) + 取得清理認證(Certification)。"
+    },
+    {
+        "id": 1199,
+        "tags": [
+            "SY0-701",
+            "Change Management"
+        ],
+        "q": "A systems administrator would like to deploy a change to a production system. Which of the following must the administrator submit to demonstrate that the system can be restored to a working state in the event of a performance issue?",
+        "options": {
+            "A": "Backout plan",
+            "B": "Impact analysis",
+            "C": "Test procedure",
+            "D": "Approval procedure"
+        },
+        "correct": "A",
+        "exp": "A backout plan shows the system can be restored if the change fails. 出問題時能還原到先前狀態的步驟 = 回退計畫（Backout plan）。"
+    },
+    {
+        "id": 1200,
+        "tags": [
+            "SY0-701",
+            "Architecture"
+        ],
+        "q": "A company is redesigning its infrastructure and wants to reduce the number of physical servers in use. Which of the following architectures is best suited for this goal?",
+        "options": {
+            "A": "Serverless",
+            "B": "Segmentation",
+            "C": "Virtualization",
+            "D": "Microservices"
+        },
+        "correct": "C",
+        "exp": "Virtualization reduces the number of physical servers. 減少實體伺服器數量 → 虛擬化（Virtualization）。"
+    },
+    {
+        "id": 1201,
+        "tags": [
+            "SY0-701",
+            "Integrity"
+        ],
+        "q": "A bank set up a new server that contains customers' PII. Which of the following should the bank use to make sure the sensitive data is not modified?",
+        "options": {
+            "A": "Full disk encryption",
+            "B": "Network access control",
+            "C": "File integrity monitoring",
+            "D": "User behavior analytics"
+        },
+        "correct": "C",
+        "exp": "File integrity monitoring ensures the PII is not modified. 確保資料未被竄改(完整性) → 檔案完整性監控（FIM）。"
+    },
+    {
+        "id": 1202,
+        "tags": [
+            "SY0-701",
+            "BIA"
+        ],
+        "q": "Which of the following tasks is typically included in the BIA process?",
+        "options": {
+            "A": "Estimating the recovery time of systems",
+            "B": "Identifying the communication strategy",
+            "C": "Evaluating the risk management plan",
+            "D": "Establishing the backup and recovery procedures",
+            "E": "Developing the incident response plan"
+        },
+        "correct": "A",
+        "exp": "Estimating systems' recovery time is part of the BIA. BIA 典型任務:估算系統復原時間（recovery time）。"
+    },
+    {
+        "id": 1203,
+        "tags": [
+            "SY0-701",
+            "Vuln Management"
+        ],
+        "q": "Which of the following most impacts an administrator's ability to address CVEs discovered on a server?",
+        "options": {
+            "A": "Rescanning requirements",
+            "B": "Patch availability",
+            "C": "Organizational impact",
+            "D": "Risk tolerance"
+        },
+        "correct": "B",
+        "exp": "Patch availability most affects the ability to address CVEs. 沒有修補程式就無法直接處理 CVE → 修補程式可得性（Patch availability）。"
+    },
+    {
+        "id": 1204,
+        "tags": [
+            "SY0-701",
+            "Change Management"
+        ],
+        "q": "Which of the following describes effective change management procedures?",
+        "options": {
+            "A": "Approving the change after a successful deployment",
+            "B": "Having a backout plan when a patch fails",
+            "C": "Using a spreadsheet for tracking changes",
+            "D": "Using an automatic change control bypass for security updates"
+        },
+        "correct": "B",
+        "exp": "Effective change management includes a backout plan when a patch fails. 有效變更管理需納入補丁失敗時的回退計畫（backout plan）。"
+    },
+    {
+        "id": 1205,
+        "tags": [
+            "SY0-701",
+            "NGFW"
+        ],
+        "q": "The CIRT is reviewing an incident that involved an HR recruiter exfiltrating sensitive company data. The CIRT found the recruiter was able to use HTTP over port 53 to upload documents to a web server. Which of the following security infrastructure devices could have identified and blocked this activity?",
+        "options": {
+            "A": "WAF utilizing SSL decryption",
+            "B": "NGFW utilizing application inspection",
+            "C": "UTM utilizing a threat feed",
+            "D": "SD-WAN utilizing IPSec"
+        },
+        "correct": "B",
+        "exp": "An NGFW with application inspection detects/blocks HTTP over port 53. 應用層檢測可識別非標準協議(HTTP 走 53 埠) → NGFW 應用檢測（application inspection）。"
+    },
+    {
+        "id": 1206,
+        "tags": [
+            "SY0-701",
+            "Encryption / Network"
+        ],
+        "q": "An enterprise is working with a third party and needs to allow access between the internal networks of both parties for a secure file migration. The solution needs to ensure encryption is applied to all traffic that is traversing the networks. Which of the following solutions should most likely be implemented?",
+        "options": {
+            "A": "EAP",
+            "B": "IPSec",
+            "C": "SD-WAN",
+            "D": "TLS"
+        },
+        "correct": "B",
+        "exp": "IPSec encrypts all IP traffic traversing the networks. 在網路層(第三層)加密所有 IP 流量 → IPSec。"
+    },
+    {
+        "id": 1207,
+        "tags": [
+            "SY0-701",
+            "DLP"
+        ],
+        "q": "An administrator has identified and fingerprinted specific files that will generate an alert if an attempt is made to email these files outside of the organization. Which of the following best describes the tool the administrator is using?",
+        "options": {
+            "A": "DLP",
+            "B": "SNMP traps",
+            "C": "SCAP",
+            "D": "IPS"
+        },
+        "correct": "A",
+        "exp": "Fingerprinting files to alert on external emailing describes DLP. 指紋辨識特定檔案外送時警示 = 資料外洩防護（DLP）。"
+    },
+    {
+        "id": 1208,
+        "tags": [
+            "SY0-701",
+            "Integrity"
+        ],
+        "q": "A software developer released a new application and is distributing application files via the developer's website. Which of the following should the developer post on the website to allow users to verify the integrity of the downloaded files?",
+        "options": {
+            "A": "Hashes",
+            "B": "Certificates",
+            "C": "Algorithms",
+            "D": "Salting"
+        },
+        "correct": "A",
+        "exp": "Post hashes so users can verify the integrity of downloaded files. 公布雜湊值(hash)讓使用者下載後比對完整性。"
+    },
+    {
+        "id": 1209,
+        "tags": [
+            "SY0-701",
+            "Cryptography"
+        ],
+        "q": "An organization wants to limit potential impact to its log-in database in the event of a breach. Which of the following options is the security team most likely to recommend?",
+        "options": {
+            "A": "Tokenization",
+            "B": "Hashing",
+            "C": "Obfuscation",
+            "D": "Segmentation"
+        },
+        "correct": "B",
+        "exp": "Hashing the login database limits the impact if it is breached. 登入資料庫(帳密)存雜湊值,外洩時攻擊者拿不到明文密碼 → 雜湊（Hashing）。"
+    },
+    {
+        "id": 1210,
+        "tags": [
+            "SY0-701",
+            "Malware"
+        ],
+        "q": "An administrator finds that all user workstations and servers are displaying a message that is associated with files containing an extension of .ryk. Which of the following types of infections is present on the systems?",
+        "options": {
+            "A": "Virus",
+            "B": "Trojan",
+            "C": "Spyware",
+            "D": "Ransomware"
+        },
+        "correct": "D",
+        "exp": "The .ryk extension and message indicate ransomware (Ryuk). .ryk 為 Ryuk 勒索軟體,顯示勒索訊息 = 勒索軟體（Ransomware）。"
+    },
+    {
+        "id": 1211,
+        "tags": [
+            "SY0-701",
+            "Attacks / DDoS"
+        ],
+        "q": "A systems administrator is advised that an external web server is not functioning properly. The firewall logs show many SYN packets from different source IPs (98.123.45.100, 95.123.45.101, 99.123.45.102, ...) all to 100.50.20.7 port 443 at nearly the same time. Which of the following attacks is likely occurring?",
+        "options": {
+            "A": "DDoS",
+            "B": "Directory traversal",
+            "C": "Brute-force",
+            "D": "HTTPS downgrade"
+        },
+        "correct": "A",
+        "exp": "Many source IPs sending SYNs to one server at once is a DDoS. 多個來源 IP 同時大量 SYN 湧向同一伺服器 = 分散式阻斷服務（DDoS）。"
+    },
+    {
+        "id": 1212,
+        "tags": [
+            "SY0-701",
+            "Risk Metrics"
+        ],
+        "q": "An organization would like to calculate the time needed to resolve a hardware issue with a server. Which of the following risk management processes describes this example?",
+        "options": {
+            "A": "Recovery point objective",
+            "B": "Mean time between failures",
+            "C": "Recovery time objective",
+            "D": "Mean time to repair"
+        },
+        "correct": "D",
+        "exp": "Time to resolve a hardware issue is the mean time to repair (MTTR). 計算修復硬體問題所需的平均時間 = 平均修復時間（MTTR）。"
+    }
+]

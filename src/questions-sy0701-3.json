@@ -1,0 +1,820 @@
+[
+    {
+        "id": 1101,
+        "tags": [
+            "SY0-701",
+            "Cloud / SASE"
+        ],
+        "q": "An organization is struggling with scaling issues on its VPN concentrator and internet circuit due to remote work. The organization wants a software solution that reduces traffic on the VPN and internet circuit, while still providing encrypted tunnel access to the data center and monitoring of remote employee internet traffic. Which of the following will help achieve these objectives?",
+        "options": {
+            "A": "Deploying a SASE solution to remote employees",
+            "B": "Building a load-balanced VPN solution with redundant internet",
+            "C": "Purchasing a low-cost SD-WAN solution for VPN traffic",
+            "D": "Using a cloud provider to create additional VPN concentrators"
+        },
+        "correct": "A",
+        "exp": "SASE combines cloud network and security to cut VPN traffic while keeping encrypted access and monitoring. 雲端整合網路+安全(加密+監控+減流量) → SASE。"
+    },
+    {
+        "id": 1102,
+        "tags": [
+            "SY0-701",
+            "Attacks"
+        ],
+        "q": "A company's end users are unable to reach external websites. DNS servers show minimal CPU/disk/memory usage, but the network interface is flooded with inbound traffic. Network logs show only a small number of DNS queries sent to this server. Which of the following best describes what the security analyst is seeing?",
+        "options": {
+            "A": "Concurrent session usage",
+            "B": "Secure DNS cryptographic downgrade",
+            "C": "On-path resource consumption",
+            "D": "Reflected denial of service"
+        },
+        "correct": "D",
+        "exp": "A flooded interface with few real queries indicates a reflected denial of service. 介面被大量入向流量塞爆但實際查詢少 → 反射型阻斷服務（RDoS）。"
+    },
+    {
+        "id": 1103,
+        "tags": [
+            "SY0-701",
+            "Access Control"
+        ],
+        "q": "A systems administrator wants to prevent users from being able to access data based on their responsibilities. The administrator also wants to apply the required access structure via a simplified format. Which of the following should the administrator apply?",
+        "options": {
+            "A": "RBAC",
+            "B": "ACL",
+            "C": "SAML",
+            "D": "GPO"
+        },
+        "correct": "A",
+        "exp": "RBAC restricts access by responsibility using a simplified role structure. 依職責分配權限、格式簡化 → 角色型存取控制（RBAC）。"
+    },
+    {
+        "id": 1104,
+        "tags": [
+            "SY0-701",
+            "Vulnerabilities"
+        ],
+        "q": "One of a company's vendors sent an analyst a security bulletin that recommends a BIOS update. Which of the following vulnerability types is being addressed by the patch?",
+        "options": {
+            "A": "Virtualization",
+            "B": "Firmware",
+            "C": "Application",
+            "D": "Operating system"
+        },
+        "correct": "B",
+        "exp": "A BIOS update addresses a firmware vulnerability. BIOS 更新修補韌體（Firmware）弱點。"
+    },
+    {
+        "id": 1105,
+        "tags": [
+            "SY0-701",
+            "Forensics"
+        ],
+        "q": "A security analyst locates a potentially malicious video file on a server and needs to identify both the creation date and the file's creator. Which of the following actions would most likely give the security analyst the information required?",
+        "options": {
+            "A": "Obtain the file's SHA-256 hash.",
+            "B": "Use hexdump on the file's contents.",
+            "C": "Check endpoint logs.",
+            "D": "Query the file's metadata."
+        },
+        "correct": "D",
+        "exp": "Query the file's metadata to find the creation date and creator. 建立日期/作者等資訊 → 查詢檔案中繼資料（metadata）。"
+    },
+    {
+        "id": 1106,
+        "tags": [
+            "SY0-701",
+            "Hardening"
+        ],
+        "q": "After a recent vulnerability scan, a security engineer needs to harden the routers within the corporate network. Which of the following is the most appropriate to disable?",
+        "options": {
+            "A": "Console access",
+            "B": "Routing protocols",
+            "C": "VLANs",
+            "D": "Web-based administration"
+        },
+        "correct": "D",
+        "exp": "Disable web-based administration to harden the routers. 路由器強化應停用網頁式管理介面（Web-based administration）。ABC 不該關閉。"
+    },
+    {
+        "id": 1107,
+        "tags": [
+            "SY0-701",
+            "Cloud / IaC"
+        ],
+        "q": "Which of the following should a systems administrator use to ensure an easy deployment of resources within the cloud provider?",
+        "options": {
+            "A": "Software as a service",
+            "B": "Infrastructure as code",
+            "C": "Internet of Things",
+            "D": "Software-defined networking"
+        },
+        "correct": "B",
+        "exp": "Infrastructure as code (IaC) enables easy, repeatable cloud deployment. 以程式碼自動化佈建雲端資源 → 基礎設施即程式碼（IaC）。"
+    },
+    {
+        "id": 1108,
+        "tags": [
+            "SY0-701",
+            "IPS/IDS"
+        ],
+        "q": "An enterprise has been experiencing attacks focused on exploiting vulnerabilities in older browser versions with well-known exploits. Which of the following security solutions should be configured to best provide the ability to monitor and block these known signature-based attacks?",
+        "options": {
+            "A": "ACL",
+            "B": "DLP",
+            "C": "IDS",
+            "D": "IPS"
+        },
+        "correct": "D",
+        "exp": "An IPS monitors and blocks known signature-based attacks. 監控並主動阻擋已知特徵攻擊 → 入侵防禦系統（IPS）。"
+    },
+    {
+        "id": 1109,
+        "tags": [
+            "SY0-701",
+            "IAM",
+            "複選"
+        ],
+        "q": "During onboarding, an employee needs to create a password for an intranet account (ten characters, numbers, letters, and two special characters). Once created, the company grants access to other company-owned websites based on the intranet profile. Which of the following access management concepts is the company most likely using? (Select two).",
+        "options": {
+            "A": "Federation",
+            "B": "Identity proofing",
+            "C": "Password complexity",
+            "D": "Default password changes",
+            "E": "Password manager",
+            "F": "Open authentication"
+        },
+        "correct": "AC",
+        "exp": "Federation (one login, many sites) plus password complexity are the concepts used. 一次登入存取多站(聯盟 Federation) + 密碼複雜度（Password complexity）。"
+    },
+    {
+        "id": 1110,
+        "tags": [
+            "SY0-701",
+            "Attacks / Logs"
+        ],
+        "q": "An administrator is reviewing a single server's security logs and discovers many repeated Audit Failure entries (Event ID 4625, Logon) within seconds of each other. Which of the following best describes the action captured in this log file?",
+        "options": {
+            "A": "Brute-force attack",
+            "B": "Privilege escalation",
+            "C": "Failed password audit",
+            "D": "Forgotten password by the user"
+        },
+        "correct": "A",
+        "exp": "Many rapid failed logons (Event ID 4625) indicate a brute-force attack. 短時間大量登入失敗(4625) = 暴力破解（Brute-force）。"
+    },
+    {
+        "id": 1111,
+        "tags": [
+            "SY0-701",
+            "Encryption",
+            "複選"
+        ],
+        "q": "A security engineer is implementing FDE for all laptops in an organization. Which of the following are the most important for the engineer to consider as part of the planning process? (Select two).",
+        "options": {
+            "A": "Key escrow",
+            "B": "TPM presence",
+            "C": "Digital signatures",
+            "D": "Data tokenization",
+            "E": "Public key management",
+            "F": "Certificate authority linking"
+        },
+        "correct": "AB",
+        "exp": "For FDE, plan for key escrow and TPM presence. FDE 規劃重點：金鑰託管（Key escrow）與 TPM 存在（TPM presence）。"
+    },
+    {
+        "id": 1112,
+        "tags": [
+            "SY0-701",
+            "IPS/IDS"
+        ],
+        "q": "A hacker gained access via a phishing link that laterally deployed ransomware, which laid dormant for weeks, across the network. Which of the following would have mitigated the spread?",
+        "options": {
+            "A": "IPS",
+            "B": "IDS",
+            "C": "WAF",
+            "D": "UAT"
+        },
+        "correct": "A",
+        "exp": "An IPS would have blocked the malicious traffic/lateral spread (an IDS only alerts). IPS 能主動阻擋惡意流量/橫向擴散(IDS 只偵測)。"
+    },
+    {
+        "id": 1113,
+        "tags": [
+            "SY0-701",
+            "Threat Actors"
+        ],
+        "q": "Which of the following threat actors is the most likely to be hired by a foreign government to attack critical systems located in other countries?",
+        "options": {
+            "A": "Hacktivist",
+            "B": "Whistleblower",
+            "C": "Organized crime",
+            "D": "Unskilled attacker"
+        },
+        "correct": "C",
+        "exp": "Organized crime is most likely hired by a foreign government to attack other countries. 跨國、受雇攻擊關鍵系統 → 組織型犯罪（Organized crime）。"
+    },
+    {
+        "id": 1114,
+        "tags": [
+            "SY0-701",
+            "Cryptography"
+        ],
+        "q": "Which of the following is used to add extra complexity before using a one-way data transformation algorithm?",
+        "options": {
+            "A": "Key stretching",
+            "B": "Data masking",
+            "C": "Steganography",
+            "D": "Salting"
+        },
+        "correct": "D",
+        "exp": "Salting adds random data before a one-way hash. 雜湊前加入隨機值增加複雜度 = 加鹽（Salting）。"
+    },
+    {
+        "id": 1115,
+        "tags": [
+            "SY0-701",
+            "Social Engineering"
+        ],
+        "q": "An employee clicked a link in an email from a payment website that asked the employee to update contact information. The employee entered the log-in information but received a \"page not found\" error message. Which of the following types of social engineering attacks occurred?",
+        "options": {
+            "A": "Brand impersonation",
+            "B": "Pretexting",
+            "C": "Typosquatting",
+            "D": "Phishing"
+        },
+        "correct": "D",
+        "exp": "Entering credentials on a fake login page reached via an email link is phishing. 點郵件連結進入假冒登入頁輸入帳密 = 網路釣魚（Phishing）。"
+    },
+    {
+        "id": 1116,
+        "tags": [
+            "SY0-701",
+            "Firewall ACL"
+        ],
+        "q": "An enterprise is trying to limit outbound DNS traffic. Outbound DNS requests will only be allowed from one device with IP 10.50.10.25. Which of the following firewall ACLs will accomplish this goal?",
+        "options": {
+            "A": "permit 0.0.0.0/0 port 53; deny 10.50.10.25/32 port 53",
+            "B": "permit 0.0.0.0/0 → 10.50.10.25/32 port 53; deny 0.0.0.0/0 port 53",
+            "C": "permit 0.0.0.0/0 port 53; deny 0.0.0.0/0 → 10.50.10.25/32 port 53",
+            "D": "permit 10.50.10.25/32 → 0.0.0.0/0 port 53; deny 0.0.0.0/0 port 53"
+        },
+        "correct": "D",
+        "exp": "Permit source 10.50.10.25/32 on port 53, then deny all other outbound DNS (option D). 先允許來源 10.50.10.25 的 53 埠外送,再拒絕其餘全部 → D。"
+    },
+    {
+        "id": 1117,
+        "tags": [
+            "SY0-701",
+            "IAM / SSO"
+        ],
+        "q": "A data administrator is configuring authentication for a SaaS application and would like to reduce the number of credentials employees need to maintain. The company prefers to use domain credentials to access new SaaS applications. Which of the following methods would allow this functionality?",
+        "options": {
+            "A": "SSO",
+            "B": "LEAP",
+            "C": "MFA",
+            "D": "PEAP"
+        },
+        "correct": "A",
+        "exp": "SSO lets employees use one set of (domain) credentials across many apps. 以一組(網域)憑證存取多個應用 → 單一登入（SSO）。"
+    },
+    {
+        "id": 1118,
+        "tags": [
+            "SY0-701",
+            "Social Engineering"
+        ],
+        "q": "Which of the following scenarios describes a possible business email compromise attack?",
+        "options": {
+            "A": "An employee receives a gift card request in an email that has an executive's name in the display field of the email.",
+            "B": "Employees who open an email attachment receive messages demanding payment in order to access files.",
+            "C": "A service desk employee receives an email from the HR director asking for log-in credentials to a cloud administrator account.",
+            "D": "An employee receives an email with a link to a phishing site that is designed to look like the company's email portal."
+        },
+        "correct": "C",
+        "exp": "BEC: the attacker impersonates the HR director to obtain a privileged account's credentials. BEC：冒充內部高層(HR 主管)向員工索取特權帳號憑證。"
+    },
+    {
+        "id": 1119,
+        "tags": [
+            "SY0-701",
+            "Remote Access"
+        ],
+        "q": "A company prevented direct access from the database administrators' workstations to the network segment that contains database servers. Which of the following should a database administrator use to access the database servers?",
+        "options": {
+            "A": "Jump server",
+            "B": "RADIUS",
+            "C": "HSM",
+            "D": "Load balancer"
+        },
+        "correct": "A",
+        "exp": "Use a jump server to reach the isolated database segment. 透過跳板機（Jump server）安全存取受隔離的伺服器網段。"
+    },
+    {
+        "id": 1120,
+        "tags": [
+            "SY0-701",
+            "AppSec / WAF"
+        ],
+        "q": "An organization's internet-facing website was compromised when an attacker exploited a buffer overflow. Which of the following should the organization deploy to best protect against similar attacks in the future?",
+        "options": {
+            "A": "NGFW",
+            "B": "WAF",
+            "C": "TLS",
+            "D": "SD-WAN"
+        },
+        "correct": "B",
+        "exp": "Deploy a WAF to protect the web app from buffer-overflow and similar attacks. 保護 web 應用免於緩衝區溢位等攻擊 → Web 應用防火牆（WAF）。"
+    },
+    {
+        "id": 1121,
+        "tags": [
+            "SY0-701",
+            "MFA"
+        ],
+        "q": "An administrator notices that several users are logging in from suspicious IP addresses. The employees confirm they were not logging in from those IP addresses, and the administrator resets the affected users' passwords. Which of the following should the administrator implement to prevent this type of attack from succeeding in the future?",
+        "options": {
+            "A": "Multifactor authentication",
+            "B": "Permissions assignment",
+            "C": "Access management",
+            "D": "Password complexity"
+        },
+        "correct": "A",
+        "exp": "MFA prevents access even when the password is compromised. 即使密碼外洩仍需第二因素 → 多因素驗證（MFA）。"
+    },
+    {
+        "id": 1122,
+        "tags": [
+            "SY0-701",
+            "Social Engineering",
+            "複選"
+        ],
+        "q": "An employee receives a text message that appears to have been sent by the payroll department and is asking for credential verification. Which of the following social engineering techniques are being attempted? (Choose two.)",
+        "options": {
+            "A": "Typosquatting",
+            "B": "Phishing",
+            "C": "Impersonation",
+            "D": "Vishing",
+            "E": "Smishing",
+            "F": "Misinformation"
+        },
+        "correct": "CE",
+        "exp": "A text impersonating payroll and asking for credentials = smishing plus impersonation. 簡訊(SMS)+冒充薪資部門 → 簡訊釣魚（Smishing）+ 冒充（Impersonation）。"
+    },
+    {
+        "id": 1123,
+        "tags": [
+            "SY0-701",
+            "Social Engineering",
+            "複選"
+        ],
+        "q": "Several employees received a fraudulent text message from someone claiming to be the CEO: \"I'm in an airport right now with no access to email. I need you to buy gift cards for employee recognition awards. Please send the gift cards to the following email address.\" Which of the following are the best responses to this situation? (Choose two).",
+        "options": {
+            "A": "Cancel current employee recognition gift cards.",
+            "B": "Add a smishing exercise to the annual company training.",
+            "C": "Issue a general email warning to the company.",
+            "D": "Have the CEO change phone numbers.",
+            "E": "Conduct a forensic investigation on the CEO's phone.",
+            "F": "Implement mobile device management."
+        },
+        "correct": "BC",
+        "exp": "For a smishing scam: add a smishing training exercise and issue a general email warning. 此為 smishing：加入 smishing 演練訓練(B) + 對全公司發警示郵件(C)。"
+    },
+    {
+        "id": 1124,
+        "tags": [
+            "SY0-701",
+            "Pen Test"
+        ],
+        "q": "An organization wants a third-party vendor to do a penetration test that targets a specific device. The organization has provided basic information about the device. Which of the following best describes this kind of penetration test?",
+        "options": {
+            "A": "Partially known environment",
+            "B": "Unknown environment",
+            "C": "Integrated",
+            "D": "Known environment"
+        },
+        "correct": "A",
+        "exp": "Providing basic device info makes it a partially known (gray-box) test. 提供部分資訊 = 部分已知環境（灰箱 / Partially known）。"
+    },
+    {
+        "id": 1125,
+        "tags": [
+            "SY0-701",
+            "Social Engineering"
+        ],
+        "q": "An attacker posing as the CEO calls an employee and instructs the employee to buy gift cards. Which of the following techniques is the attacker using?",
+        "options": {
+            "A": "Smishing",
+            "B": "Disinformation",
+            "C": "Impersonating",
+            "D": "Whaling"
+        },
+        "correct": "C",
+        "exp": "Posing as the CEO to manipulate an employee is impersonation. 『假冒』CEO 操縱員工 = 冒充（Impersonating）。（whaling 是『針對』高層,非假冒）"
+    },
+    {
+        "id": 1126,
+        "tags": [
+            "SY0-701",
+            "Zero Trust"
+        ],
+        "q": "An analyst is evaluating the implementation of Zero Trust principles within the data plane. Which of the following would be most relevant for the analyst to evaluate?",
+        "options": {
+            "A": "Secured zones",
+            "B": "Subject role",
+            "C": "Adaptive identity",
+            "D": "Threat scope reduction"
+        },
+        "correct": "A",
+        "exp": "In the Zero Trust data plane, evaluate secured (implicit trust) zones. 資料平面(data plane)含隱含信任區 → 安全區（Secured zones）。"
+    },
+    {
+        "id": 1127,
+        "tags": [
+            "SY0-701",
+            "Data States"
+        ],
+        "q": "An organization is leveraging a VPN between its headquarters and a branch location. Which of the following is the VPN protecting?",
+        "options": {
+            "A": "Data in use",
+            "B": "Data in transit",
+            "C": "Geographic restrictions",
+            "D": "Data sovereignty"
+        },
+        "correct": "B",
+        "exp": "A VPN protects data in transit. VPN 加密傳輸中的資料 → 傳輸中資料（Data in transit）。"
+    },
+    {
+        "id": 1128,
+        "tags": [
+            "SY0-701",
+            "Shadow IT"
+        ],
+        "q": "The marketing department set up its own project management software without telling the appropriate departments. Which of the following describes this scenario?",
+        "options": {
+            "A": "Shadow IT",
+            "B": "Insider threat",
+            "C": "Data exfiltration",
+            "D": "Service disruption"
+        },
+        "correct": "A",
+        "exp": "Unapproved software set up without IT's knowledge is shadow IT. 未經核准自行採用 IT 資源 = 影子 IT（Shadow IT）。"
+    },
+    {
+        "id": 1129,
+        "tags": [
+            "SY0-701",
+            "Integrity"
+        ],
+        "q": "A company wants to verify that the software the company is deploying came from the vendor the company purchased the software from. Which of the following is the best way for the company to confirm this information?",
+        "options": {
+            "A": "Validate the code signature.",
+            "B": "Execute the code in a sandbox.",
+            "C": "Search the executable for ASCII strings.",
+            "D": "Generate a hash of the files."
+        },
+        "correct": "A",
+        "exp": "Validate the code signature to confirm the software's source. 驗證軟體來源真實性 → 驗證程式碼簽章（code signature）。"
+    },
+    {
+        "id": 1130,
+        "tags": [
+            "SY0-701",
+            "NAC"
+        ],
+        "q": "After a security incident, a systems administrator asks the company to buy a NAC platform. Which of the following attack surfaces is the systems administrator trying to protect?",
+        "options": {
+            "A": "Bluetooth",
+            "B": "Wired",
+            "C": "NFC",
+            "D": "SCADA"
+        },
+        "correct": "B",
+        "exp": "A NAC platform protects the wired attack surface. NAC 主要保護有線(Wired)網路的存取攻擊面。"
+    },
+    {
+        "id": 1131,
+        "tags": [
+            "SY0-701",
+            "Awareness",
+            "複選"
+        ],
+        "q": "Which of the following factors are the most important to address when formulating a training curriculum plan for a security awareness program? (Select two).",
+        "options": {
+            "A": "Channels by which the organization communicates with customers",
+            "B": "The reporting mechanisms for ethics violations",
+            "C": "Threat vectors based on the industry in which the organization operates",
+            "D": "Secure software development training for all personnel",
+            "E": "Cadence and duration of training events",
+            "F": "Retraining requirements for individuals who fail phishing simulations"
+        },
+        "correct": "CE",
+        "exp": "Address industry-specific threat vectors and the cadence/duration of training. 依產業的威脅向量(C) + 訓練頻率與時長(E)。"
+    },
+    {
+        "id": 1132,
+        "tags": [
+            "SY0-701",
+            "Security Controls"
+        ],
+        "q": "An organization disabled unneeded services and placed a firewall in front of a business-critical legacy system. Which of the following best describes the actions taken by the organization?",
+        "options": {
+            "A": "Exception",
+            "B": "Segmentation",
+            "C": "Risk transfer",
+            "D": "Compensating controls"
+        },
+        "correct": "D",
+        "exp": "Disabling services and firewalling a legacy system are compensating controls. 舊系統不能換,用替代方式保護 → 補償性控制（Compensating controls）。"
+    },
+    {
+        "id": 1133,
+        "tags": [
+            "SY0-701",
+            "Supply Chain"
+        ],
+        "q": "A company is required to use certified hardware when building networks. Which of the following best addresses the risks associated with procuring counterfeit hardware?",
+        "options": {
+            "A": "A thorough analysis of the supply chain",
+            "B": "A legally enforceable corporate acquisition policy",
+            "C": "A right to audit clause in vendor contracts and SOWs",
+            "D": "An in-depth penetration test of all suppliers and vendors"
+        },
+        "correct": "A",
+        "exp": "A thorough supply-chain analysis best addresses counterfeit hardware. 防偽冒硬體 → 徹底的供應鏈分析（supply chain analysis）。"
+    },
+    {
+        "id": 1134,
+        "tags": [
+            "SY0-701",
+            "Pen Test"
+        ],
+        "q": "Which of the following provides the details about the terms of a test with a third-party penetration tester?",
+        "options": {
+            "A": "Rules of engagement",
+            "B": "Supply chain analysis",
+            "C": "Right to audit clause",
+            "D": "Due diligence"
+        },
+        "correct": "A",
+        "exp": "Rules of engagement define the terms of a penetration test. 規範測試範圍/方法/界線 = 交戰規則（Rules of engagement）。"
+    },
+    {
+        "id": 1135,
+        "tags": [
+            "SY0-701",
+            "Pen Test / Recon"
+        ],
+        "q": "A penetration tester begins an engagement by performing port and service scans against the client environment according to the rules of engagement. Which of the following reconnaissance types is the tester performing?",
+        "options": {
+            "A": "Active",
+            "B": "Passive",
+            "C": "Defensive",
+            "D": "Offensive"
+        },
+        "correct": "A",
+        "exp": "Port and service scanning is active reconnaissance. 直接對目標發送封包/掃描 = 主動偵察（Active reconnaissance）。"
+    },
+    {
+        "id": 1136,
+        "tags": [
+            "SY0-701",
+            "DR"
+        ],
+        "q": "Which of the following is required for an organization to properly manage its restore process in the event of system failure?",
+        "options": {
+            "A": "IRP",
+            "B": "DRP",
+            "C": "RPO",
+            "D": "SDLC"
+        },
+        "correct": "B",
+        "exp": "A disaster recovery plan (DRP) manages the restore process after a failure. 系統故障後還原營運的計畫 = 災難復原計畫（DRP）。"
+    },
+    {
+        "id": 1137,
+        "tags": [
+            "SY0-701",
+            "Mobile"
+        ],
+        "q": "Which of the following vulnerabilities is associated with installing software outside of a manufacturer's approved software repository?",
+        "options": {
+            "A": "Jailbreaking",
+            "B": "Memory injection",
+            "C": "Resource reuse",
+            "D": "Side loading"
+        },
+        "correct": "D",
+        "exp": "Installing software from outside the approved repository is side loading. 從非官方來源安裝軟體 = 側載（Side loading）。"
+    },
+    {
+        "id": 1138,
+        "tags": [
+            "SY0-701",
+            "Attacks / Logs"
+        ],
+        "q": "A security analyst is reviewing logs showing: Login rejected for usernames administrator, jsmith, guest, cpolk, fmartin — all with password Spring2023. Which of the following attacks is most likely occurring?",
+        "options": {
+            "A": "Password spraying",
+            "B": "Account forgery",
+            "C": "Pass-the-hash",
+            "D": "Brute-force"
+        },
+        "correct": "A",
+        "exp": "One common password tried against many accounts is password spraying. 同一個常用密碼試多個帳號 = 密碼噴灑（Password spraying）。"
+    },
+    {
+        "id": 1139,
+        "tags": [
+            "SY0-701",
+            "Malware"
+        ],
+        "q": "A systems administrator receives an alert from a file integrity monitoring tool: The hash of the cmd.exe file has changed. The administrator checks OS logs and notices that no patches were applied in the last two months. Which of the following most likely occurred?",
+        "options": {
+            "A": "The end user changed the file permissions.",
+            "B": "A cryptographic collision was detected.",
+            "C": "A snapshot of the file system was taken.",
+            "D": "A rootkit was deployed."
+        },
+        "correct": "D",
+        "exp": "A changed cmd.exe hash with no patches applied indicates a rootkit. 無更新卻系統核心檔(cmd.exe)雜湊改變 → 部署了 rootkit。"
+    },
+    {
+        "id": 1140,
+        "tags": [
+            "SY0-701",
+            "Remote Access"
+        ],
+        "q": "An engineer needs to find a solution that creates an added layer of security by preventing unauthorized access to internal company resources. Which of the following would be the best solution?",
+        "options": {
+            "A": "RDP server",
+            "B": "Jump server",
+            "C": "Proxy server",
+            "D": "Hypervisor"
+        },
+        "correct": "B",
+        "exp": "A jump server adds a controlled access layer before internal resources. 作為存取內部資源的中介關卡 → 跳板機/堡壘主機（Jump server）。"
+    },
+    {
+        "id": 1141,
+        "tags": [
+            "SY0-701",
+            "Web Filtering"
+        ],
+        "q": "A company's web filter is configured to scan the URL for strings and deny access when matches are found. Which of the following search strings should an analyst employ to prohibit access to non-encrypted websites?",
+        "options": {
+            "A": "encryption=off",
+            "B": "http://",
+            "C": "www.*.com",
+            "D": ":443"
+        },
+        "correct": "B",
+        "exp": "Block the string http:// to deny non-encrypted sites. 封鎖非加密網站 → 比對字串 http://（非加密連線）。"
+    },
+    {
+        "id": 1142,
+        "tags": [
+            "SY0-701",
+            "Firewall ACL"
+        ],
+        "q": "During a security incident, the team identified sustained network traffic from malicious IP 10.1.4.9. A security analyst is creating an inbound firewall rule to block the IP address from accessing the organization's network. Which of the following fulfills this request?",
+        "options": {
+            "A": "access-list inbound deny ip source 0.0.0.0/0 destination 10.1.4.9/32",
+            "B": "access-list inbound deny ip source 10.1.4.9/32 destination 0.0.0.0/0",
+            "C": "access-list inbound permit ip source 10.1.4.9/32 destination 0.0.0.0/0",
+            "D": "access-list inbound permit ip source 0.0.0.0/0 destination 10.1.4.9/32"
+        },
+        "correct": "B",
+        "exp": "Deny source 10.1.4.9/32 to any destination (option B). 阻擋來源 10.1.4.9/32 進入任何目的 → deny source 10.1.4.9/32 destination 0.0.0.0/0。"
+    },
+    {
+        "id": 1143,
+        "tags": [
+            "SY0-701",
+            "Remote Access"
+        ],
+        "q": "A company needs to provide administrative access to internal resources while minimizing the traffic allowed through the security boundary. Which of the following methods is most secure?",
+        "options": {
+            "A": "Implementing a bastion host",
+            "B": "Deploying a perimeter network",
+            "C": "Installing a WAF",
+            "D": "Utilizing single sign-on"
+        },
+        "correct": "A",
+        "exp": "A bastion host provides the most secure, minimal-traffic administrative access. 集中管理流量、單一嚴控入口 → 堡壘主機（bastion host）。"
+    },
+    {
+        "id": 1144,
+        "tags": [
+            "SY0-701",
+            "Risk Management"
+        ],
+        "q": "Which of the following is the most likely to be used to document risks, responsible parties, and thresholds?",
+        "options": {
+            "A": "Risk tolerance",
+            "B": "Risk transfer",
+            "C": "Risk register",
+            "D": "Risk analysis"
+        },
+        "correct": "C",
+        "exp": "A risk register documents risks, responsible parties and thresholds. 記錄風險、負責人、門檻 = 風險登錄表（Risk register）。"
+    },
+    {
+        "id": 1145,
+        "tags": [
+            "SY0-701",
+            "Change Management"
+        ],
+        "q": "Which of the following should a security administrator adhere to when setting up a new set of firewall rules?",
+        "options": {
+            "A": "Disaster recovery plan",
+            "B": "Incident response procedure",
+            "C": "Business continuity plan",
+            "D": "Change management procedure"
+        },
+        "correct": "D",
+        "exp": "Setting up new firewall rules follows the change management procedure. 設定新防火牆規則屬變更 → 遵循變更管理程序（Change management）。"
+    },
+    {
+        "id": 1146,
+        "tags": [
+            "SY0-701",
+            "Pen Test / Program"
+        ],
+        "q": "A company is expanding its threat surface program and allowing individuals to security test the company's internet-facing application. The company will compensate researchers based on the vulnerabilities discovered. Which of the following best describes the program the company is setting up?",
+        "options": {
+            "A": "Open-source intelligence",
+            "B": "Bug bounty",
+            "C": "Red team",
+            "D": "Penetration testing"
+        },
+        "correct": "B",
+        "exp": "Paying researchers for vulnerabilities found describes a bug bounty. 找到漏洞就給獎金 = 漏洞賞金計畫（Bug bounty）。"
+    },
+    {
+        "id": 1147,
+        "tags": [
+            "SY0-701",
+            "Threat Actors"
+        ],
+        "q": "Which of the following threat actors is the most likely to use large financial resources to attack critical systems located in other countries?",
+        "options": {
+            "A": "Insider",
+            "B": "Unskilled attacker",
+            "C": "Nation-state",
+            "D": "Hacktivist"
+        },
+        "correct": "C",
+        "exp": "A nation-state uses large financial resources to attack other countries' systems. 龐大資源+跨國攻擊關鍵系統 = 國家級（Nation-state）。"
+    },
+    {
+        "id": 1148,
+        "tags": [
+            "SY0-701",
+            "Attacks"
+        ],
+        "q": "Which of the following enables the use of an input field to run commands that can view or manipulate data?",
+        "options": {
+            "A": "Cross-site scripting",
+            "B": "Side loading",
+            "C": "Buffer overflow",
+            "D": "SQL injection"
+        },
+        "correct": "D",
+        "exp": "SQL injection uses an input field to run commands against the database. 透過輸入欄位執行指令操作資料庫資料 = SQL injection。"
+    },
+    {
+        "id": 1149,
+        "tags": [
+            "SY0-701",
+            "Data Types"
+        ],
+        "q": "Employees in the research and development business unit receive extensive training to ensure they understand how to best protect company data. Which of the following is the type of data these employees are most likely to use in day-to-day work activities?",
+        "options": {
+            "A": "Encrypted",
+            "B": "Intellectual property",
+            "C": "Critical",
+            "D": "Data in transit"
+        },
+        "correct": "B",
+        "exp": "R&D staff mainly work with intellectual property data. 研發單位日常處理的公司資料 = 智慧財產（Intellectual property）。"
+    },
+    {
+        "id": 1150,
+        "tags": [
+            "SY0-701",
+            "Asset Management",
+            "複選"
+        ],
+        "q": "A company has begun labeling all laptops with asset inventory stickers and associating them with employee IDs. Which of the following security benefits do these actions provide? (Choose two.)",
+        "options": {
+            "A": "If a security incident occurs on the device, the correct employee can be notified.",
+            "B": "The security team will be able to send user awareness training to the appropriate device.",
+            "C": "Users can be mapped to their devices when configuring software MFA tokens.",
+            "D": "User-based firewall policies can be correctly targeted to the appropriate laptops.",
+            "E": "When conducting penetration testing, the security team will be able to target the desired laptops.",
+            "F": "Company data can be accounted for when the employee leaves the organization."
+        },
+        "correct": "AF",
+        "exp": "Asset tags mapped to employees let you notify the right user and account for data at offboarding. 裝置與員工對應：事件可通知正確員工(A) + 離職時可清點公司資料(F)。"
+    }
+]

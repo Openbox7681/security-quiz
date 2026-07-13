@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompTIA Security+ 專屬錯題庫</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --success: #16a34a;
+            --error: #dc2626;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 { color: var(--primary); margin-bottom: 5px; }
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+        .toolbar .label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-right: 4px;
+        }
+        .toolbar .spacer { flex: 1; }
+        .btn-tool {
+            background-color: #f1f5f9;
+            color: var(--text);
+            border: 1px solid #e2e8f0;
+            padding: 7px 14px;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.15s ease;
+        }
+        .btn-tool:hover { background-color: #e2e8f0; }
+        .btn-tool.primary {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        .btn-tool.primary:hover { background-color: #1d4ed8; }
+        .quiz-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            position: relative;
+        }
+        .quiz-card.dragging {
+            opacity: 0.4;
+        }
+        .quiz-card.drag-over {
+            border: 2px dashed var(--primary);
+        }
+        .card-head {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+        .drag-handle {
+            cursor: grab;
+            color: #94a3b8;
+            font-size: 1.2rem;
+            line-height: 1;
+            user-select: none;
+            padding: 2px 4px;
+        }
+        .drag-handle:active { cursor: grabbing; }
+        .question-num {
+            font-weight: bold;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        .question-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+        .option-item {
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option-item:hover {
+            background-color: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary);
+            background-color: #eff6ff;
+        }
+        .btn-submit {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .btn-submit:hover { background-color: #1d4ed8; }
+        .explanation-zone {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+        .explanation-zone.correct {
+            background-color: #f0fdf4;
+            border-left: 5px solid var(--success);
+        }
+        .explanation-zone.incorrect {
+            background-color: #fef2f2;
+            border-left: 5px solid var(--error);
+        }
+        .exp-title { font-weight: bold; margin-bottom: 5px; }
+        .exp-title.correct { color: var(--success); }
+        .exp-title.incorrect { color: var(--error); }
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 10px;
+            background-color: #e2e8f0;
+        }
+        .btn-tool.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        .score {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+        .empty-hint {
+            text-align: center;
+            color: #94a3b8;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Security+ High-Frequency Quiz</h1>
+        <p>精選核心錯題與官方高頻考點檢閱</p>
+    </header>
+
+    <div class="toolbar">
+        <span class="label">出題數量：</span>
+        <button class="btn-tool" data-size="20" onclick="setSize(20)">20 題</button>
+        <button class="btn-tool" data-size="50" onclick="setSize(50)">50 題</button>
+        <button class="btn-tool" data-size="100" onclick="setSize(100)">100 題</button>
+        <button class="btn-tool" data-size="all" onclick="setSize('all')">全部</button>
+        <span class="spacer"></span>
+        <span class="score" id="score">答對 0 / 已作答 0</span>
+        <button class="btn-tool primary" onclick="reroll()">🎲 重新抽題</button>
+    </div>
+
+    <div class="toolbar">
+        <span class="label">排序：</span>
+        <button class="btn-tool" onclick="sortBy('id')">依題號</button>
+        <button class="btn-tool" onclick="sortBy('tag')">依標籤</button>
+        <button class="btn-tool" onclick="shuffleOrder()">🔀 打亂</button>
+        <button class="btn-tool" onclick="resetOrder()">重設</button>
+        <span class="spacer"></span>
+        <button class="btn-tool" onclick="document.getElementById('import-file').click()">📥 匯入題目</button>
+        <button class="btn-tool primary" onclick="exportQuestions()">📤 匯出</button>
+        <input type="file" id="import-file" accept=".json,application/json" style="display:none" onchange="importQuestions(event)">
+    </div>
+
+    <div id="quiz-container"></div>
+</div>
+
+<script>
+const SESSION_KEY = 'security-quiz-session';
+const SIZE_KEY = 'security-quiz-size';
+const DEFAULT_SIZE = 20;
+
+// 題庫檔案清單：之後要新增題目，做一個新的 .json 陣列檔並把檔名列在這裡即可。
+// 每個檔案都是一個題目陣列，載入後會合併；請確保各檔的 id 不重複。
+const QUESTION_SOURCES = [
+    'questions.json',
+    'questions-sy0701-1.json',
+    'questions-sy0701-2.json',
+    'questions-sy0701-3.json',
+    'questions-sy0701-4.json',
+    'questions-sy0701-5.json'
+];
+
+let quizData = [];            // 全部題庫（來自各題庫檔及匯入）
+let order = [];               // 本次測驗題目 id（隨機抽出的子集，含顯示順序）
+let examSize = DEFAULT_SIZE;  // 出題數量（數字或 'all'）
+
+const container = document.getElementById('quiz-container');
+
+// 讀取所有題庫檔案並合併
+async function loadQuestions() {
+    const merged = [];
+    const errors = [];
+    for (const src of QUESTION_SOURCES) {
+        try {
+            const res = await fetch(src + '?_=' + Date.now());
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            const data = await res.json();
+            if (Array.isArray(data)) merged.push(...data);
+        } catch (e) {
+            errors.push(`${src}（${e.message}）`);
+        }
+    }
+
+    if (merged.length === 0) {
+        container.innerHTML = `<div class="empty-hint">
+            無法載入任何題庫檔：<br>${errors.join('<br>')}<br><br>
+            請確認網站是透過伺服器（docker / http）開啟，而非直接雙擊 HTML 檔。
+        </div>`;
+        return;
+    }
+    if (errors.length) {
+        console.warn('部分題庫檔載入失敗：', errors.join('、'));
+    }
+    quizData = merged;
+    initSession();
+    render();
+}
+
+// Fisher–Yates 洗牌，回傳新陣列
+function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
+// 從題庫隨機抽出 n 題（'all' 代表全部），回傳打亂後的 id 陣列
+function sampleIds(n) {
+    const shuffled = shuffle(quizData.map(q => q.id));
+    if (n === 'all') return shuffled;
+    return shuffled.slice(0, Math.min(n, shuffled.length));
+}
+
+// 開始新的一份測驗（隨機抽題）
+function startSession(size) {
+    examSize = size;
+    order = sampleIds(size);
+    for (const k in userAnswers) delete userAnswers[k];
+    for (const k in results) delete results[k];
+    saveSession();
+    updateSizeButtons();
+    render();
+}
+
+// 載入時：優先還原上次測驗，否則以預設題數開新測驗
+function initSession() {
+    let savedSize = null, savedOrder = null;
+    try { savedSize = JSON.parse(localStorage.getItem(SIZE_KEY)); } catch (e) {}
+    try { savedOrder = JSON.parse(localStorage.getItem(SESSION_KEY)); } catch (e) {}
+
+    const ids = new Set(quizData.map(q => q.id));
+    if (Array.isArray(savedOrder) && savedOrder.length) {
+        order = savedOrder.filter(id => ids.has(id));   // 過濾已不存在的題目
+        examSize = (savedSize === 'all' || typeof savedSize === 'number') ? savedSize : order.length;
+    }
+    if (!order || order.length === 0) {
+        examSize = DEFAULT_SIZE;
+        order = sampleIds(DEFAULT_SIZE);
+    }
+    saveSession();
+    updateSizeButtons();
+}
+
+function saveSession() {
+    localStorage.setItem(SESSION_KEY, JSON.stringify(order));
+    localStorage.setItem(SIZE_KEY, JSON.stringify(examSize));
+}
+
+/* ---------- 出題數量控制 ---------- */
+function setSize(n) {
+    const total = quizData.length;
+    if (typeof n === 'number' && n > total &&
+        !confirm(`題庫目前只有 ${total} 題，將以全部 ${total} 題出題。`)) return;
+    startSession(n);
+}
+
+function reroll() {
+    if (Object.keys(results).length && !confirm('要重新抽題嗎？目前的作答與成績會清除。')) return;
+    startSession(examSize);
+}
+
+function updateSizeButtons() {
+    document.querySelectorAll('.btn-tool[data-size]').forEach(btn => {
+        const v = btn.dataset.size === 'all' ? 'all' : Number(btn.dataset.size);
+        btn.classList.toggle('active', v === examSize);
+    });
+}
+
+function updateScore() {
+    const answered = Object.keys(results).length;
+    const correct = Object.values(results).filter(Boolean).length;
+    const el = document.getElementById('score');
+    if (el) el.textContent = `答對 ${correct} / 已作答 ${answered}（共 ${order.length} 題）`;
+}
+
+// 依目前 order 渲染所有題目
+function render() {
+    container.innerHTML = '';
+    if (quizData.length === 0) {
+        container.innerHTML = `<div class="empty-hint">目前沒有題目，請編輯 questions.json 或使用「匯入題目」。</div>`;
+        return;
+    }
+    if (order.length === 0) {
+        container.innerHTML = `<div class="empty-hint">本次沒有抽到題目，請按上方「重新抽題」或選擇出題數量。</div>`;
+        updateScore();
+        return;
+    }
+
+    order.forEach((id, index) => {
+        const item = quizData.find(q => q.id === id);
+        if (!item) return;
+
+        const card = document.createElement('div');
+        card.className = 'quiz-card';
+        card.id = `card-${item.id}`;
+        card.dataset.id = item.id;
+        card.draggable = true;
+
+        const tagsHtml = (item.tags || []).map(t => `<span class="badge">${t}</span>`).join('');
+
+        let optionsHtml = '';
+        for (const [key, value] of Object.entries(item.options)) {
+            optionsHtml += `
+                <li class="option-item" onclick="selectOption(${item.id}, '${key}')" data-question="${item.id}" data-key="${key}">
+                    <strong>${key}.</strong> ${value}
+                </li>
+            `;
+        }
+
+        const displayNum = String(index + 1).padStart(2, '0');
+        card.innerHTML = `
+            <div class="card-head">
+                <span class="drag-handle" title="拖曳調整順序">⠿</span>
+                <span class="question-num">Question ${displayNum} ${tagsHtml}</span>
+            </div>
+            <div class="question-text">${item.q}</div>
+            <ul class="options-list">${optionsHtml}</ul>
+            <button class="btn-submit" onclick="checkAnswer(${item.id})">送出答案</button>
+            <div class="explanation-zone" id="exp-${item.id}"></div>
+        `;
+        attachDragHandlers(card);
+        container.appendChild(card);
+
+        // 若使用者先前已作答，重繪後恢復選取狀態
+        if (userAnswers[item.id]) {
+            const t = card.querySelector(`.option-item[data-key="${userAnswers[item.id]}"]`);
+            if (t) t.classList.add('selected');
+        }
+        // 若此題已作答，重繪後回填詳解
+        if (results[item.id] !== undefined) showExplanation(item);
+    });
+    updateScore();
+}
+
+/* ---------- 拖曳排序 ---------- */
+let dragId = null;
+
+function attachDragHandlers(card) {
+    card.addEventListener('dragstart', (e) => {
+        dragId = Number(card.dataset.id);
+        card.classList.add('dragging');
+        e.dataTransfer.effectAllowed = 'move';
+    });
+    card.addEventListener('dragend', () => {
+        dragId = null;
+        card.classList.remove('dragging');
+        document.querySelectorAll('.quiz-card').forEach(c => c.classList.remove('drag-over'));
+    });
+    card.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+    });
+    card.addEventListener('dragenter', () => {
+        if (Number(card.dataset.id) !== dragId) card.classList.add('drag-over');
+    });
+    card.addEventListener('dragleave', () => card.classList.remove('drag-over'));
+    card.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const targetId = Number(card.dataset.id);
+        if (dragId === null || dragId === targetId) return;
+        const from = order.indexOf(dragId);
+        const to = order.indexOf(targetId);
+        order.splice(from, 1);
+        order.splice(to, 0, dragId);
+        saveSession();
+        render();
+    });
+}
+
+/* ---------- 排序工具（作用於本次測驗抽到的題目） ---------- */
+function sortBy(field) {
+    const items = order.map(id => quizData.find(q => q.id === id)).filter(Boolean);
+    if (field === 'id') {
+        items.sort((a, b) => a.id - b.id);
+    } else if (field === 'tag') {
+        items.sort((a, b) => {
+            const ta = (a.tags && a.tags[0]) || '';
+            const tb = (b.tags && b.tags[0]) || '';
+            return ta.localeCompare(tb) || a.id - b.id;
+        });
+    }
+    order = items.map(q => q.id);
+    saveSession();
+    render();
+}
+
+function shuffleOrder() {
+    order = shuffle(order);
+    saveSession();
+    render();
+}
+
+function resetOrder() {
+    // 重設：把本次測驗題目依題號排序（不會重新抽題）
+    sortBy('id');
+}
+
+/* ---------- 匯入 / 匯出 ---------- */
+function importQuestions(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        try {
+            const incoming = JSON.parse(e.target.result);
+            if (!Array.isArray(incoming)) throw new Error('檔案格式須為題目陣列 [ ... ]');
+            let added = 0;
+            incoming.forEach(q => {
+                if (q.id == null || !q.options || !q.correct) return;
+                const idx = quizData.findIndex(existing => existing.id === q.id);
+                if (idx >= 0) {
+                    quizData[idx] = q;          // 相同 id：覆蓋更新
+                } else {
+                    quizData.push(q);           // 新題目：加入題庫
+                    added++;
+                }
+            });
+            alert(`匯入完成，題庫新增 ${added} 題（共 ${quizData.length} 題）。\n按「重新抽題」或選擇「全部」即可把新題目納入出題。\n注意：匯入的題目僅存在於本次瀏覽，若要永久保存請「匯出」後覆蓋題庫檔。`);
+        } catch (err) {
+            alert('匯入失敗：' + err.message);
+        }
+        event.target.value = '';  // 允許重複匯入同一檔
+    };
+    reader.readAsText(file);
+}
+
+function exportQuestions() {
+    // 匯出整個題庫（依題號排序），方便保存或覆蓋回題庫檔
+    const ordered = [...quizData].sort((a, b) => a.id - b.id);
+    const blob = new Blob([JSON.stringify(ordered, null, 4)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'questions.json';
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+/* ---------- 作答邏輯 ---------- */
+const userAnswers = {};   // qId -> 使用者選的選項
+const results = {};       // qId -> 是否答對（true/false）
+
+function selectOption(qId, key) {
+    if (results[qId] !== undefined) return;   // 已作答就鎖定
+    const card = document.getElementById(`card-${qId}`);
+    card.querySelectorAll('.option-item').forEach(item => item.classList.remove('selected'));
+    const target = card.querySelector(`.option-item[data-key="${key}"]`);
+    target.classList.add('selected');
+    userAnswers[qId] = key;
+}
+
+function checkAnswer(qId) {
+    if (results[qId] !== undefined) return;   // 避免重複計分
+    const userAns = userAnswers[qId];
+    if (!userAns) {
+        alert("請先選擇一個答案！");
+        return;
+    }
+    const item = quizData.find(q => q.id === qId);
+    results[qId] = (userAns === item.correct);
+    showExplanation(item);
+    updateScore();
+}
+
+// 顯示詳解（重繪後也用來回填已作答題目）
+function showExplanation(item) {
+    const userAns = userAnswers[item.id];
+    const correct = results[item.id];
+    const expZone = document.getElementById(`exp-${item.id}`);
+    if (!expZone) return;
+    expZone.style.display = "block";
+    if (correct) {
+        expZone.className = "explanation-zone correct";
+        expZone.innerHTML = `
+            <div class="exp-title correct">🎉 答對了！</div>
+            <p><strong>正確答案：${item.correct}</strong></p>
+            <p>${item.exp}</p>
+        `;
+    } else {
+        expZone.className = "explanation-zone incorrect";
+        expZone.innerHTML = `
+            <div class="exp-title incorrect">❌ 答錯囉！</div>
+            <p><strong>你的答案：${userAns} | 正確答案：<span style="color:var(--success); font-weight:bold;">${item.correct}</span></strong></p>
+            <p>${item.exp}</p>
+        `;
+    }
+}
+
+loadQuestions();
+</script>
+</body>
+</html>

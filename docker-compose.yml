@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  quiz-website:
+    image: nginx:alpine
+    container_name: security-quiz-app
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/usr/share/nginx/html:ro
+    environment:
+      - TZ=Asia/Taipei
+
+# 可選：若未來你想跟本機的 N8N 或其他自動化工具串在同一個網路，可以取消下方註解
+# networks:
+#   default:
+#     name: json-quiz-network

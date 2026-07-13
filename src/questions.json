@@ -1,0 +1,106 @@
+[
+    {
+        "id": 1,
+        "tags": ["Third-Party Risk", "IP Protection"],
+        "q": "A technology company is considering several third-party vendors for a critical software development project. The selected vendor will have access to sensitive intellectual property. The company needs to mitigate the risks associated with outsourcing this project. What would be the MOST critical step in the third-party vendor assessment process to ensure the protection of the company's intellectual property?",
+        "options": {
+            "A": "Assessing the potential vendors' software development methodologies and programming languages",
+            "B": "Comparing the cost of services offered by the potential vendors",
+            "C": "Evaluating the potential vendors' security measures, regulatory compliance, and history of handling sensitive data",
+            "D": "Analyzing the potential vendors' past project completion times"
+        },
+        "correct": "C",
+        "exp": "題目的核心目標是保護機密性（IP 智慧財產權）。評估廠商的資安控制措施、合規性以及過往處理敏感資料的歷史紀錄，是降低外洩風險最直接且關鍵的步驟。其餘選項（語言、成本、時程）皆屬於專案管理或採購考量，與資料保護無直接關聯。"
+    },
+    {
+        "id": 2,
+        "tags": ["Risk Analysis", "CompTIA Trap"],
+        "q": "A cybersecurity consultant is analyzing risks for a new e-commerce website. The consultant identifies potential risks, evaluates their impact and likelihood, and considers the organization's ability to mitigate them. Which risk analysis or assessment methodology is the consultant MOST likely using?",
+        "options": {
+            "A": "Qualitative and quantitative risk analysis",
+            "B": "Ad hoc risk assessments",
+            "C": "Quantitative risk analysis",
+            "D": "Qualitative risk analysis"
+        },
+        "correct": "A",
+        "exp": "【官方特有思維】傳統上 Impact 與 Likelihood 屬於定性（Qualitative）分析。然而，官方解析明確指出，最後一句話『考慮組織緩解風險的能力』實務上牽涉到防禦措施的『成本與預算效益（Costs）』，這屬於定量（Quantitative）因素。因此兩者結合，答案為 A。"
+    },
+    {
+        "id": 3,
+        "tags": ["Penetration Testing"],
+        "q": "A financial institution has hired a team of security professionals to evaluate its defensive security measures and incident response procedures. The institution wants to assess how effectively it can detect and respond to cyber threats and identify areas for improvement. However, it is not looking for an assessment of the digital vulnerabilities or physical security at this time. What type of penetration testing is the MOST suitable for this financial institution?",
+        "options": {
+            "A": "Physical penetration testing",
+            "B": "Offensive penetration testing",
+            "C": "Defensive penetration testing",
+            "D": "Integrated penetration testing"
+        },
+        "correct": "C",
+        "exp": "組織明確表明『不看技術漏洞（Digital）』且『不看實體安全（Physical）』，唯一目標是評估『防禦措施』與『事件應變（IR）程序』的偵測與回應能力。這屬於標準的防禦性測試（藍隊視角驗證）。"
+    },
+    {
+        "id": 4,
+        "tags": ["Security Governance", "Audit"],
+        "q": "An organization validates its security controls, processes, and adherence to industry standards and wants an unbiased evaluation to instill confidence among stakeholders. Which method should it employ for this purpose?",
+        "options": {
+            "A": "Self-assessment",
+            "B": "Independent third-party audit",
+            "C": "Audit committee",
+            "D": "Compliance assessment"
+        },
+        "correct": "B",
+        "exp": "關鍵字在於『無偏見的評估（unbiased evaluation）』以及『建立利害關係人的信心（instill confidence）』。只有完全不具備利益衝突的『獨立第三方稽核』才能提供客觀公信力，讓外部股東、客戶或監管機構信服。"
+    },
+    {
+        "id": 5,
+        "tags": ["Risk Management"],
+        "q": "A technology company experiences several security vulnerabilities with its online application, leading to customer complaints and legal threats. In response, the board of directors decides to outsource the maintenance and associated liabilities of the application to a third party. Which risk management strategy is the company primarily implementing?",
+        "options": {
+            "A": "Risk transference",
+            "B": "Risk acceptance",
+            "C": "Risk mitigation",
+            "D": "Risk avoidance"
+        },
+        "correct": "A",
+        "exp": "將業務連同『相關的法律/財務責任（associated liabilities）』一併外包（Outsource）給第三方承擔，這是非常標準的風險轉移（Transference）手段。"
+    },
+    {
+        "id": 6,
+        "tags": ["Risk Metrics", "Math"],
+        "q": "A manufacturing organization identifies its server maintenance and repair process as a mission-essential function. The company experienced three server failures in the last year, each failure taking approximately six hours to repair and restore operations. A standard operational year is usually assumed to be 8,760 hours (24*365). Given the company's performance metrics and assuming operations run all day and every day, what are the annual MTBF and MTTR for the organization's server maintenance and repair process?",
+        "options": {
+            "A": "MTBF: 2,000 hours/failure, MTTR: 6 hours",
+            "B": "MTBF: 1,460 hours/failure, MTTR: 18 hours",
+            "C": "MTBF: 2,920 hours/failure, MTTR: 6 hours",
+            "D": "MTBF: 1,000 hours/failure, MTTR: 2 hours"
+        },
+        "correct": "C",
+        "exp": "MTTR（平均修復時間）直接給出為 6 小時。MTBF（平均故障間隔時間）使用整年小時數除以故障次數：8,760 小時 / 3 次 = 2,920 小時。故選 C。"
+    },
+    {
+        "id": 7,
+        "tags": ["BIA", "Risk Metrics"],
+        "q": "A risk manager for a company providing IT support services conducts a business impact analysis (BIA) and identifies a Mission Essential Function (MEF) that relies on a server with a Mean Time Between Failures (MTBF) of 2,500 hours and a Mean Time to Repair (MTTR) of 4 hours. Given a Maximum Tolerable Downtime (MTD) of 24 hours and a Recovery Time Objective (RTO) of 6 hours for this function, what should the risk manager prioritize in the risk management strategy?",
+        "options": {
+            "A": "Increasing the MTD for the function",
+            "B": "Extending the RTO for the function",
+            "C": "Reducing the MTTR of the server",
+            "D": "Improving the MTBF of the server"
+        },
+        "correct": "C",
+        "exp": "目前伺服器硬體維修（MTTR=4小時）佔用了服務復原時間目標（RTO=6小時）太大的比例，導致留給其他系統還原與驗證活動的時間（僅剩2小時）極度危險。縮短 MTTR 可以有效釋放復原時程的擠壓壓力。而 MTD 與 RTO 屬於業務底線，不可隨意更改；MTBF 已達 2500 小時，非當前最急迫風險。"
+    },
+    {
+        "id": 8,
+        "tags": ["Third-Party Governance"],
+        "q": "A large healthcare organization is considering an alliance with a third-party medical software provider. The organization wants to ensure they well-document all aspects of the alliance, with both parties understanding their roles and responsibilities. Which of the following should the healthcare organization prioritize to clearly define the parameters, the expectations for both parties, and the protocols for managing risks and security?",
+        "options": {
+            "A": "Service level agreement (SLA) and statement of work (SOW)",
+            "B": "Business Partnership Agreement (BPA) and Rules of Engagement (RoE)",
+            "C": "Questionnaires and master services agreement (MSA)",
+            "D": "Memorandum of Understanding (MOU) and nondisclosure agreement (NDA)"
+        },
+        "correct": "B",
+        "exp": "【戰略層級劃分】此合作屬於長期跨組織的『策略聯盟（Alliance）』，需要使用最高治理層級的 BPA 來定義利潤、決策與整體架構，並搭配 RoE 來確立雙方互動的安全邊界與期望。而 SLA 與 SOW 屬於微觀的特定專案交付與運作指標，不適合當作宏觀的聯盟框架。"
+    }
+]

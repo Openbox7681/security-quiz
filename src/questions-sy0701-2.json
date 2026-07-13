@@ -1,0 +1,812 @@
+[
+    {
+        "id": 1051,
+        "tags": [
+            "SY0-701",
+            "Incident Response"
+        ],
+        "q": "A security manager created new documentation to use in response to various types of security incidents. Which of the following is the next step the manager should take?",
+        "options": {
+            "A": "Set the maximum data retention policy.",
+            "B": "Securely store the documents on an air-gapped network.",
+            "C": "Review the documents' data classification policy.",
+            "D": "Conduct a tabletop exercise with the team."
+        },
+        "correct": "D",
+        "exp": "After creating IR documentation, validate it with a tabletop exercise. 建立文件後應以桌上演練（tabletop exercise）驗證團隊能否正確應對。"
+    },
+    {
+        "id": 1052,
+        "tags": [
+            "SY0-701",
+            "Web Filtering"
+        ],
+        "q": "Users at a company are reporting they are unable to access the URL for a new retail website because it is flagged as gambling and is being blocked. Which of the following changes would allow users to access the site?",
+        "options": {
+            "A": "Creating a firewall rule to allow HTTPS traffic",
+            "B": "Configuring the IPS to allow shopping",
+            "C": "Tuning the DLP rule that detects credit card data",
+            "D": "Updating the categorization in the content filter"
+        },
+        "correct": "D",
+        "exp": "Update the content filter's categorization so the miscategorized site is allowed. 網站被內容過濾器誤分類為賭博 → 更新內容過濾器的分類。"
+    },
+    {
+        "id": 1053,
+        "tags": [
+            "SY0-701",
+            "Threat Actors"
+        ],
+        "q": "An administrator discovers that some files on a database server were recently encrypted. The administrator sees from the security logs that the data was last accessed by a domain user. Which of the following best describes the type of attack that occurred?",
+        "options": {
+            "A": "Insider threat",
+            "B": "Social engineering",
+            "C": "Watering-hole",
+            "D": "Unauthorized attacker"
+        },
+        "correct": "A",
+        "exp": "A domain user encrypting files by abusing legitimate access is an insider threat. 有合法網域帳號的人濫用權限造成損害 = 內部威脅（Insider threat）。"
+    },
+    {
+        "id": 1054,
+        "tags": [
+            "SY0-701",
+            "Automation"
+        ],
+        "q": "Which of the following automation use cases would best enhance the security posture of an organization by rapidly updating permissions when employees leave a company?",
+        "options": {
+            "A": "Provisioning resources",
+            "B": "Disabling access",
+            "C": "Reviewing change approvals",
+            "D": "Escalating permission requests"
+        },
+        "correct": "B",
+        "exp": "Automatically disabling access when employees leave rapidly updates permissions. 員工離職時快速更新權限 → 自動化停用存取（Disabling access）。"
+    },
+    {
+        "id": 1055,
+        "tags": [
+            "SY0-701",
+            "Network Isolation"
+        ],
+        "q": "A company would like to provide employees with computers that do not have access to the internet in order to prevent information from being leaked to an online forum. Which of the following would be best for the systems administrator to implement?",
+        "options": {
+            "A": "Air gap",
+            "B": "Jump server",
+            "C": "Logical segmentation",
+            "D": "Virtualization"
+        },
+        "correct": "A",
+        "exp": "An air gap fully isolates the machines from the internet to stop leaks. 完全不連網以防外洩 → 實體隔離（Air gap）。"
+    },
+    {
+        "id": 1056,
+        "tags": [
+            "SY0-701",
+            "Data Protection"
+        ],
+        "q": "Which of the following methods to secure credit card data is best to use when a requirement is to see only the last four numbers on a credit card?",
+        "options": {
+            "A": "Encryption",
+            "B": "Hashing",
+            "C": "Masking",
+            "D": "Tokenization"
+        },
+        "correct": "C",
+        "exp": "Masking hides digits and shows only the last four of a card number. 只顯示末四碼、其餘遮住 = 遮罩（Masking）。"
+    },
+    {
+        "id": 1057,
+        "tags": [
+            "SY0-701",
+            "Malware"
+        ],
+        "q": "An administrator finds that all user workstations and servers are displaying a message that is associated with files containing an extension of .ryk. Which of the following types of infections is present on the systems?",
+        "options": {
+            "A": "Virus",
+            "B": "Trojan",
+            "C": "Spyware",
+            "D": "Ransomware"
+        },
+        "correct": "D",
+        "exp": "The .ryk extension and ransom message indicate ransomware (Ryuk). .ryk 為 Ryuk 勒索軟體副檔名，顯示勒索訊息 = 勒索軟體（Ransomware）。"
+    },
+    {
+        "id": 1058,
+        "tags": [
+            "SY0-701",
+            "CIA Triad"
+        ],
+        "q": "A healthcare organization wants to provide a web application that allows individuals to digitally report health emergencies. Which of the following is the most important consideration during development?",
+        "options": {
+            "A": "Scalability",
+            "B": "Availability",
+            "C": "Cost",
+            "D": "Ease of deployment"
+        },
+        "correct": "B",
+        "exp": "For emergency reporting, availability is the most important consideration. 回報健康緊急事件的應用最重視可用性（Availability）。"
+    },
+    {
+        "id": 1059,
+        "tags": [
+            "SY0-701",
+            "Audit"
+        ],
+        "q": "Which of the following is the best reason to complete an audit in a banking environment?",
+        "options": {
+            "A": "Regulatory requirement",
+            "B": "Organizational change",
+            "C": "Self-assessment requirement",
+            "D": "Service-level requirement"
+        },
+        "correct": "A",
+        "exp": "Banks perform audits mainly to meet regulatory requirements. 銀行環境做稽核最主要原因是法規/監管要求（Regulatory requirement）。"
+    },
+    {
+        "id": 1060,
+        "tags": [
+            "SY0-701",
+            "DLP"
+        ],
+        "q": "A security administrator is deploying a DLP solution to prevent the exfiltration of sensitive customer data. Which of the following should the administrator do first?",
+        "options": {
+            "A": "Block access to cloud storage websites.",
+            "B": "Create a rule to block outgoing email attachments.",
+            "C": "Apply classifications to the data.",
+            "D": "Remove all user permissions from shares on the file server."
+        },
+        "correct": "C",
+        "exp": "The first step in a DLP deployment is to classify the data. DLP 第一步：先對資料做分類（classification），才知道要保護什麼。"
+    },
+    {
+        "id": 1061,
+        "tags": [
+            "SY0-701",
+            "Logs / SIEM"
+        ],
+        "q": "Which of the following describes a security alerting and monitoring tool that collects system, application, and network logs from multiple sources in a centralized system?",
+        "options": {
+            "A": "SIEM",
+            "B": "DLP",
+            "C": "IDS",
+            "D": "SNMP"
+        },
+        "correct": "A",
+        "exp": "A SIEM centrally collects and correlates logs from many sources. 集中收集多來源 log 並警示 = SIEM。"
+    },
+    {
+        "id": 1062,
+        "tags": [
+            "SY0-701",
+            "Asset Management",
+            "複選"
+        ],
+        "q": "Which of the following are cases in which an engineer should recommend the decommissioning of a network device? (Select two).",
+        "options": {
+            "A": "The device has been moved from a production environment to a test environment.",
+            "B": "The device is configured to use cleartext passwords.",
+            "C": "The device is moved to an isolated segment on the enterprise network.",
+            "D": "The device is moved to a different location in the enterprise.",
+            "E": "The device's encryption level cannot meet organizational standards.",
+            "F": "The device is unable to receive authorized updates."
+        },
+        "correct": "BE",
+        "exp": "Decommission devices that use cleartext passwords or cannot meet encryption standards. 使用明文密碼(B)、加密等級不符組織標準(E) → 應汰除。（註：部分來源認為 EF）"
+    },
+    {
+        "id": 1063,
+        "tags": [
+            "SY0-701",
+            "Data Policy"
+        ],
+        "q": "An administrator assists the legal and compliance team with ensuring information about customer transactions is archived for the proper time period. Which of the following data policies is the administrator carrying out?",
+        "options": {
+            "A": "Compromise",
+            "B": "Retention",
+            "C": "Analysis",
+            "D": "Transfer",
+            "E": "Inventory"
+        },
+        "correct": "B",
+        "exp": "Archiving records for a required period follows the data retention policy. 依規定時間保存/封存資料 = 資料保留（Retention）政策。"
+    },
+    {
+        "id": 1064,
+        "tags": [
+            "SY0-701",
+            "Zero Trust"
+        ],
+        "q": "A systems administrator is working on a solution with the following requirements: Provide a secure zone; Enforce a company-wide access control policy; Reduce the scope of threats. Which of the following is the systems administrator setting up?",
+        "options": {
+            "A": "Zero Trust",
+            "B": "AAA",
+            "C": "Non-repudiation",
+            "D": "CIA"
+        },
+        "correct": "A",
+        "exp": "Secure zone + org-wide access policy + reduced threat scope describes Zero Trust. 安全區+全公司存取政策+縮小威脅範圍 = 零信任（Zero Trust）。"
+    },
+    {
+        "id": 1065,
+        "tags": [
+            "SY0-701",
+            "Integrity"
+        ],
+        "q": "A security administrator needs a method to secure data in an environment that includes some form of checks so that the administrator can track any changes. Which of the following should the administrator set up to achieve this goal?",
+        "options": {
+            "A": "SPF",
+            "B": "GPO",
+            "C": "NAC",
+            "D": "FIM"
+        },
+        "correct": "D",
+        "exp": "File integrity monitoring (FIM) detects and tracks changes to files. 偵測檔案變更 → 檔案完整性監控（FIM）。"
+    },
+    {
+        "id": 1066,
+        "tags": [
+            "SY0-701",
+            "Incident Response"
+        ],
+        "q": "Which of the following is the phase in the incident response process when a security analyst reviews roles and responsibilities?",
+        "options": {
+            "A": "Preparation",
+            "B": "Recovery",
+            "C": "Lessons learned",
+            "D": "Analysis"
+        },
+        "correct": "A",
+        "exp": "Reviewing roles and responsibilities occurs in the preparation phase. 檢視角色與職責屬於準備（Preparation）階段。"
+    },
+    {
+        "id": 1067,
+        "tags": [
+            "SY0-701",
+            "Data Disposal"
+        ],
+        "q": "A company is discarding a classified storage array and hires an outside vendor to complete the disposal. Which of the following should the company request from the vendor?",
+        "options": {
+            "A": "Certification",
+            "B": "Inventory list",
+            "C": "Classification",
+            "D": "Proof of ownership"
+        },
+        "correct": "A",
+        "exp": "Request a certificate of destruction from the disposal vendor. 向廠商索取銷毀證明（Certification）以佐證安全處置。"
+    },
+    {
+        "id": 1068,
+        "tags": [
+            "SY0-701",
+            "Physical Security",
+            "複選"
+        ],
+        "q": "Which of the following would be the best ways to ensure only authorized personnel can access a secure facility? (Select two).",
+        "options": {
+            "A": "Fencing",
+            "B": "Video surveillance",
+            "C": "Badge access",
+            "D": "Access control vestibule",
+            "E": "Sign-in sheet",
+            "F": "Sensor"
+        },
+        "correct": "CD",
+        "exp": "Badge access plus an access control vestibule best restrict facility entry. 門禁卡（Badge access）+ 雙門管制間（Access control vestibule）可確保只有授權者進入。"
+    },
+    {
+        "id": 1069,
+        "tags": [
+            "SY0-701",
+            "Data Roles"
+        ],
+        "q": "A company's marketing department collects, modifies, and stores sensitive customer data. The infrastructure team is responsible for securing the data while in transit and at rest. Which of the following data roles describes the customer?",
+        "options": {
+            "A": "Processor",
+            "B": "Custodian",
+            "C": "Subject",
+            "D": "Owner"
+        },
+        "correct": "C",
+        "exp": "The customer whom the data describes is the data subject. 資料所描述的對象（顧客）= 資料主體（Subject）。"
+    },
+    {
+        "id": 1070,
+        "tags": [
+            "SY0-701",
+            "Social Engineering"
+        ],
+        "q": "Malware spread across a company's network after an employee visited a compromised industry blog. Which of the following best describes this type of attack?",
+        "options": {
+            "A": "Impersonation",
+            "B": "Disinformation",
+            "C": "Watering-hole",
+            "D": "Smishing"
+        },
+        "correct": "C",
+        "exp": "Infecting a site the targets frequently visit is a watering-hole attack. 攻擊者感染目標常造訪的網站（產業部落格）= 水坑攻擊（Watering-hole）。"
+    },
+    {
+        "id": 1071,
+        "tags": [
+            "SY0-701",
+            "Security Controls"
+        ],
+        "q": "After a recent ransomware attack on a company's system, an administrator reviewed the log files. Which of the following control types did the administrator use?",
+        "options": {
+            "A": "Compensating",
+            "B": "Detective",
+            "C": "Preventive",
+            "D": "Corrective"
+        },
+        "correct": "B",
+        "exp": "Reviewing log files after an attack uses a detective control. 事後查 log 以發現/分析事件 = 偵測性（Detective）控制。"
+    },
+    {
+        "id": 1072,
+        "tags": [
+            "SY0-701",
+            "Agreements"
+        ],
+        "q": "Which of the following agreement types defines the time frame in which a vendor needs to respond?",
+        "options": {
+            "A": "SOW",
+            "B": "SLA",
+            "C": "MOA",
+            "D": "MOU"
+        },
+        "correct": "B",
+        "exp": "An SLA defines the vendor's required response time frame. 定義服務回應時間等品質標準 = 服務水準協議（SLA）。"
+    },
+    {
+        "id": 1073,
+        "tags": [
+            "SY0-701",
+            "Monitoring"
+        ],
+        "q": "A CISO wants to monitor the company's servers for SQLi attacks and allow for comprehensive investigations if an attack occurs. The company uses SSL decryption to allow traffic monitoring. Which of the following strategies would best accomplish this goal?",
+        "options": {
+            "A": "Logging all NetFlow traffic into a SIEM",
+            "B": "Deploying network traffic sensors on the same subnet as the servers",
+            "C": "Logging endpoint and OS-specific security logs",
+            "D": "Enabling full packet capture for traffic entering and exiting the servers"
+        },
+        "correct": "D",
+        "exp": "Full packet capture provides the complete content needed to investigate SQLi. 要完整內容以供調查 SQLi → 全封包擷取（full packet capture）。"
+    },
+    {
+        "id": 1074,
+        "tags": [
+            "SY0-701",
+            "Agreements"
+        ],
+        "q": "A client demands at least 99.99% uptime from a service provider's hosted security services. Which of the following documents includes the information the service provider should return to the client?",
+        "options": {
+            "A": "MOA",
+            "B": "SOW",
+            "C": "MOU",
+            "D": "SLA"
+        },
+        "correct": "D",
+        "exp": "An SLA specifies uptime guarantees such as 99.99% and any penalties. 規範最低可用率（99.99%）與未達成之罰則 = SLA。"
+    },
+    {
+        "id": 1075,
+        "tags": [
+            "SY0-701",
+            "Mobile"
+        ],
+        "q": "A company is adding a clause to its AUP that states employees are not allowed to modify the operating system on mobile devices. Which of the following vulnerabilities is the organization addressing?",
+        "options": {
+            "A": "Cross-site scripting",
+            "B": "Buffer overflow",
+            "C": "Jailbreaking",
+            "D": "Side loading"
+        },
+        "correct": "C",
+        "exp": "Banning OS modification on mobile devices addresses jailbreaking. 禁止修改行動裝置作業系統 = 防越獄（Jailbreaking）。"
+    },
+    {
+        "id": 1076,
+        "tags": [
+            "SY0-701",
+            "Secure SDLC"
+        ],
+        "q": "Which of the following practices would be best to prevent an insider from introducing malicious code into a company's development process?",
+        "options": {
+            "A": "Code scanning for vulnerabilities",
+            "B": "Open-source component usage",
+            "C": "Quality assurance testing",
+            "D": "Peer review and approval"
+        },
+        "correct": "D",
+        "exp": "Peer review and approval best prevents insiders inserting malicious code. 同儕審查與核准（Peer review）可防內部人員植入惡意程式碼。"
+    },
+    {
+        "id": 1077,
+        "tags": [
+            "SY0-701",
+            "Automation"
+        ],
+        "q": "A systems administrator is creating a script that would save time and prevent human error when performing account creation for a large number of end users. Which of the following would be a good use case for this task?",
+        "options": {
+            "A": "Off-the-shelf software",
+            "B": "Orchestration",
+            "C": "Baseline",
+            "D": "Policy enforcement"
+        },
+        "correct": "B",
+        "exp": "Orchestration automates multi-step account creation across systems. 跨系統自動化多重任務 = 編排（Orchestration）。"
+    },
+    {
+        "id": 1078,
+        "tags": [
+            "SY0-701",
+            "Access Control"
+        ],
+        "q": "After an audit, an administrator discovers all users have access to confidential data on a file server. Which of the following should the administrator use to restrict access to the data quickly?",
+        "options": {
+            "A": "Group Policy",
+            "B": "Content filtering",
+            "C": "Data loss prevention",
+            "D": "Access control lists"
+        },
+        "correct": "D",
+        "exp": "Access control lists (ACLs) quickly restrict file access. 快速限制檔案存取 → 存取控制清單（ACL）。"
+    },
+    {
+        "id": 1079,
+        "tags": [
+            "SY0-701",
+            "Threat Actors"
+        ],
+        "q": "A CISO wants to explicitly raise awareness about the increase of ransomware-as-a-service in a report to the management team. Which of the following best describes the threat actor in the CISO's report?",
+        "options": {
+            "A": "Insider threat",
+            "B": "Hacktivist",
+            "C": "Nation-state",
+            "D": "Organized crime"
+        },
+        "correct": "D",
+        "exp": "Ransomware-as-a-service is run by organized crime. 勒索軟體即服務（RaaS）為圖利 → 組織型犯罪（Organized crime）。"
+    },
+    {
+        "id": 1080,
+        "tags": [
+            "SY0-701",
+            "Vulnerabilities"
+        ],
+        "q": "A small business uses kiosks on the sales floor to display product information for customers. A security team discovers the kiosks use end-of-life operating systems. Which of the following is the security team most likely to document as a security implication of the current architecture?",
+        "options": {
+            "A": "Patch availability",
+            "B": "Product software compatibility",
+            "C": "Ease of recovery",
+            "D": "Cost of replacement"
+        },
+        "correct": "A",
+        "exp": "An end-of-life OS gets no patches, so the security implication is patch availability. EOL 系統不再有修補 → 資安隱憂是修補程式可得性（Patch availability）。"
+    },
+    {
+        "id": 1081,
+        "tags": [
+            "SY0-701",
+            "Data Classification",
+            "複選"
+        ],
+        "q": "A company is developing a critical system for the government and storing project information on a fileshare. Which of the following describes how this data will most likely be classified? (Select two).",
+        "options": {
+            "A": "Private",
+            "B": "Confidential",
+            "C": "Public",
+            "D": "Operational",
+            "E": "Urgent",
+            "F": "Restricted"
+        },
+        "correct": "BF",
+        "exp": "Government project data is most likely classified confidential and restricted. 政府關鍵系統資料多分類為機密（Confidential）與受限（Restricted）。"
+    },
+    {
+        "id": 1082,
+        "tags": [
+            "SY0-701",
+            "Vuln Management"
+        ],
+        "q": "After reviewing a vulnerability scan report showing Server 192.168.14.6, Service Telnet, Port 23, Severity High, Vulnerability: Use of an insecure network protocol — a security analyst runs: nmap -p 23 192.168.14.6 --script telnet-encryption, which returns that the Telnet server supports encryption. Which of the following would the security analyst conclude for this reported vulnerability?",
+        "options": {
+            "A": "It is a false positive.",
+            "B": "A rescan is required.",
+            "C": "It is considered noise.",
+            "D": "Compensating controls exist."
+        },
+        "correct": "D",
+        "exp": "Since Telnet supports encryption, a compensating control exists (answer per bank; community also argues false positive). Telnet 竟支援加密,等於已有補償性控制存在（Compensating controls exist）。（此題社群另有主張 A 誤報,答案有爭議）"
+    },
+    {
+        "id": 1083,
+        "tags": [
+            "SY0-701",
+            "Remote Access"
+        ],
+        "q": "A security consultant needs secure, remote access to a client environment. Which of the following should the security consultant most likely use to gain access?",
+        "options": {
+            "A": "EAP",
+            "B": "DHCP",
+            "C": "IPSec",
+            "D": "NAT"
+        },
+        "correct": "C",
+        "exp": "IPSec provides a secure, encrypted VPN for remote access. 建立加密 VPN 通道遠端存取 → IPSec。"
+    },
+    {
+        "id": 1084,
+        "tags": [
+            "SY0-701",
+            "Change Management"
+        ],
+        "q": "Which of the following best practices gives administrators a set period to perform changes to an operational system to ensure availability and minimize business impacts?",
+        "options": {
+            "A": "Impact analysis",
+            "B": "Scheduled downtime",
+            "C": "Backout plan",
+            "D": "Change management boards"
+        },
+        "correct": "B",
+        "exp": "Scheduled downtime gives a set window to make changes safely. 事先安排的變更時段 = 排定停機（Scheduled downtime）。"
+    },
+    {
+        "id": 1085,
+        "tags": [
+            "SY0-701",
+            "Endpoint"
+        ],
+        "q": "Which of the following actions could a security engineer take to ensure workstations and servers are properly monitored for unauthorized changes and software?",
+        "options": {
+            "A": "Configure all systems to log scheduled tasks.",
+            "B": "Collect and monitor all traffic exiting the network.",
+            "C": "Block traffic based on known malicious signatures.",
+            "D": "Install endpoint management software on all systems."
+        },
+        "correct": "D",
+        "exp": "Endpoint management software monitors systems for unauthorized changes and software. 監控端點未授權變更/軟體 → 安裝端點管理軟體。"
+    },
+    {
+        "id": 1086,
+        "tags": [
+            "SY0-701",
+            "Social Engineering"
+        ],
+        "q": "After a security awareness training session, a user called the IT help desk and reported a suspicious call. The suspicious caller stated that the CFO wanted credit card information in order to close an invoice. Which of the following topics did the user recognize from the training?",
+        "options": {
+            "A": "Insider threat",
+            "B": "Email phishing",
+            "C": "Social engineering",
+            "D": "Executive whaling"
+        },
+        "correct": "C",
+        "exp": "A caller impersonating the CFO to obtain data is social engineering. 冒充 CFO 以電話騙取資訊 = 社交工程（Social engineering）。"
+    },
+    {
+        "id": 1087,
+        "tags": [
+            "SY0-701",
+            "Incident Response"
+        ],
+        "q": "Which of the following exercises should an organization use to improve its incident response process?",
+        "options": {
+            "A": "Tabletop",
+            "B": "Replication",
+            "C": "Failover",
+            "D": "Recovery"
+        },
+        "correct": "A",
+        "exp": "A tabletop exercise improves the incident response process. 改善事件應變流程用桌上演練（Tabletop）。"
+    },
+    {
+        "id": 1088,
+        "tags": [
+            "SY0-701",
+            "PKI"
+        ],
+        "q": "Which of the following is used to validate a certificate when it is presented to a user?",
+        "options": {
+            "A": "OCSP",
+            "B": "CSR",
+            "C": "CA",
+            "D": "CRC"
+        },
+        "correct": "A",
+        "exp": "OCSP validates a certificate's revocation status in real time. 即時查詢單一憑證是否有效/撤銷 → OCSP。"
+    },
+    {
+        "id": 1089,
+        "tags": [
+            "SY0-701",
+            "IoT / Mitigation"
+        ],
+        "q": "A newly identified network access vulnerability has been found in the OS of legacy IoT devices. Which of the following would best mitigate this vulnerability quickly?",
+        "options": {
+            "A": "Insurance",
+            "B": "Patching",
+            "C": "Segmentation",
+            "D": "Replacement"
+        },
+        "correct": "C",
+        "exp": "Segmentation quickly mitigates a vulnerability in legacy IoT devices. 舊 IoT 無法快速修補 → 用網路分段（Segmentation）隔離、快速緩解。"
+    },
+    {
+        "id": 1090,
+        "tags": [
+            "SY0-701",
+            "Data Protection"
+        ],
+        "q": "A bank insists all of its vendors must prevent data loss on stolen laptops. Which of the following strategies is the bank requiring?",
+        "options": {
+            "A": "Encryption at rest",
+            "B": "Masking",
+            "C": "Data classification",
+            "D": "Permission restrictions"
+        },
+        "correct": "A",
+        "exp": "Encryption at rest prevents data loss on stolen laptops. 防止筆電遭竊資料外洩 → 靜態資料加密（Encryption at rest）。"
+    },
+    {
+        "id": 1091,
+        "tags": [
+            "SY0-701",
+            "Architecture"
+        ],
+        "q": "Which of the following would be best suited for constantly changing environments?",
+        "options": {
+            "A": "RTOS",
+            "B": "Containers",
+            "C": "Embedded systems",
+            "D": "SCADA"
+        },
+        "correct": "B",
+        "exp": "Containers suit constantly changing environments (lightweight and portable). 輕量、可移植、易部署更新，適合不斷變動環境 → 容器（Containers）。"
+    },
+    {
+        "id": 1092,
+        "tags": [
+            "SY0-701",
+            "Remote Access"
+        ],
+        "q": "A security analyst scans a company's public network and discovers a host is running a remote desktop that can be used to access the production network. Which of the following changes should the security analyst recommend?",
+        "options": {
+            "A": "Changing the remote desktop port to a non-standard number",
+            "B": "Setting up a VPN and placing the jump server inside the firewall",
+            "C": "Using a proxy for web connections from the remote desktop server",
+            "D": "Connecting the remote server to the domain and increasing the password length"
+        },
+        "correct": "B",
+        "exp": "Set up a VPN and place the jump server inside the firewall. 設 VPN 並把跳板機（jump server）放防火牆內,不將 RDP 暴露於公網。"
+    },
+    {
+        "id": 1093,
+        "tags": [
+            "SY0-701",
+            "Attacks"
+        ],
+        "q": "Which of the following involves an attempt to take advantage of database misconfigurations?",
+        "options": {
+            "A": "Buffer overflow",
+            "B": "SQL injection",
+            "C": "VM escape",
+            "D": "Memory injection"
+        },
+        "correct": "B",
+        "exp": "SQL injection exploits database misconfigurations or flaws. 利用資料庫設定缺陷/應用碼漏洞注入 SQL = SQL injection。"
+    },
+    {
+        "id": 1094,
+        "tags": [
+            "SY0-701",
+            "Segmentation"
+        ],
+        "q": "An organization would like to store customer data on a separate part of the network that is not accessible to users on the main corporate network. Which of the following should the administrator use to accomplish this goal?",
+        "options": {
+            "A": "Segmentation",
+            "B": "Isolation",
+            "C": "Patching",
+            "D": "Encryption"
+        },
+        "correct": "A",
+        "exp": "Segmentation isolates customer data on a separate part of the network. 把顧客資料放獨立網段 → 網路分段（Segmentation）。"
+    },
+    {
+        "id": 1095,
+        "tags": [
+            "SY0-701",
+            "Vuln Management"
+        ],
+        "q": "Which of the following is used to quantitatively measure the criticality of a vulnerability?",
+        "options": {
+            "A": "CVE",
+            "B": "CVSS",
+            "C": "CIA",
+            "D": "CERT"
+        },
+        "correct": "B",
+        "exp": "CVSS quantitatively scores a vulnerability's criticality (0-10). 以 0–10 量化弱點嚴重度 = CVSS。"
+    },
+    {
+        "id": 1096,
+        "tags": [
+            "SY0-701",
+            "Supply Chain"
+        ],
+        "q": "A technician is opening ports on a firewall for a new system being deployed and supported by a SaaS provider. Which of the following is a risk in the new system?",
+        "options": {
+            "A": "Default credentials",
+            "B": "Non-segmented network",
+            "C": "Supply chain vendor",
+            "D": "Vulnerable software"
+        },
+        "correct": "C",
+        "exp": "A system deployed/supported by a SaaS provider introduces supply-chain vendor risk (answer per bank). 由 SaaS 廠商部署支援 → 供應鏈廠商（Supply chain vendor）風險。（題庫/社群多認為 C）"
+    },
+    {
+        "id": 1097,
+        "tags": [
+            "SY0-701",
+            "CIA Triad"
+        ],
+        "q": "Which of the following security concepts is the best reason for permissions on a human resources fileshare to follow the principle of least privilege?",
+        "options": {
+            "A": "Integrity",
+            "B": "Availability",
+            "C": "Confidentiality",
+            "D": "Non-repudiation"
+        },
+        "correct": "C",
+        "exp": "Least privilege on an HR fileshare protects confidentiality. 最小權限保護 HR 敏感資料不被未授權存取 → 機密性（Confidentiality）。"
+    },
+    {
+        "id": 1098,
+        "tags": [
+            "SY0-701",
+            "Physical Security"
+        ],
+        "q": "Security controls in a data center are being reviewed to ensure data is properly protected and that human life considerations are included. Which of the following best describes how the controls should be set up?",
+        "options": {
+            "A": "Remote access points should fail closed.",
+            "B": "Logging controls should fail open.",
+            "C": "Safety controls should fail open.",
+            "D": "Logical security controls should fail closed."
+        },
+        "correct": "C",
+        "exp": "Safety controls that protect human life should fail open. 涉及人命的安全控制應 fail open（如故障時逃生門解鎖）。"
+    },
+    {
+        "id": 1099,
+        "tags": [
+            "SY0-701",
+            "Air Gap"
+        ],
+        "q": "Which of the following is the most common data loss path for an air-gapped network?",
+        "options": {
+            "A": "Bastion host",
+            "B": "Unsecured Bluetooth",
+            "C": "Unpatched OS",
+            "D": "Removable devices"
+        },
+        "correct": "D",
+        "exp": "Removable devices are the most common data-loss path on an air-gapped network. 實體隔離網路最常見外洩途徑 = 可移除裝置（如 USB）。"
+    },
+    {
+        "id": 1100,
+        "tags": [
+            "SY0-701",
+            "Endpoint"
+        ],
+        "q": "Which of the following can best protect against an employee inadvertently installing malware on a company system?",
+        "options": {
+            "A": "Host-based firewall",
+            "B": "System isolation",
+            "C": "Least privilege",
+            "D": "Application allow list"
+        },
+        "correct": "D",
+        "exp": "An application allow list best prevents inadvertent malware installation. 只允許授權程式執行,擋掉惡意軟體 → 應用程式白名單。"
+    }
+]
