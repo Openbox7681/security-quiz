@@ -179,6 +179,44 @@
             color: #94a3b8;
             padding: 40px;
         }
+        .card-head .spacer { flex: 1; }
+        .btn-copy {
+            background-color: #f1f5f9;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+            padding: 4px 10px;
+            font-size: 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: all 0.15s ease;
+        }
+        .btn-copy:hover { background-color: #e2e8f0; }
+        .btn-copy.copied {
+            background-color: #dcfce7;
+            color: #166534;
+            border-color: #86efac;
+        }
+        .pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 5px 0 30px;
+        }
+        .page-info { font-weight: 600; color: #475569; font-size: 0.9rem; }
+        .btn-tool:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-tool:disabled:hover { background-color: #f1f5f9; }
+        .page-jump {
+            width: 56px;
+            padding: 6px 8px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
@@ -219,6 +257,7 @@
 const SESSION_KEY = 'security-quiz-session';
 const SIZE_KEY = 'security-quiz-size';
 const DEFAULT_SIZE = 20;
+const PAGE_SIZE = 5;          // 每頁題數（分頁功能）
 
 // 題庫檔案清單：之後要新增題目，做一個新的 .json 陣列檔並把檔名列在這裡即可。
 // 每個檔案都是一個題目陣列，載入後會合併；請確保各檔的 id 不重複。
@@ -235,6 +274,7 @@ const QUESTION_SOURCES = [
 let quizData = [];            // 全部題庫（來自各題庫檔及匯入）
 let order = [];               // 本次測驗題目 id（隨機抽出的子集，含顯示順序）
 let examSize = DEFAULT_SIZE;  // 出題數量（數字或 'all'）
+let currentPage = 0;          // 目前頁碼（分頁功能）
 
 const container = document.getElementById('quiz-container');
 
@@ -289,6 +329,7 @@ function sampleIds(n) {
 function startSession(size) {
     examSize = size;
     order = sampleIds(size);
+    currentPage = 0;
     for (const k in userAnswers) delete userAnswers[k];
     for (const k in results) delete results[k];
     saveSession();
@@ -360,7 +401,15 @@ function render() {
         return;
     }
 
-    order.forEach((id, index) => {
+    // 分頁：每頁 PAGE_SIZE 題
+    const totalPages = Math.ceil(order.length / PAGE_SIZE);
+    if (currentPage >= totalPages) currentPage = totalPages - 1;
+    if (currentPage < 0) currentPage = 0;
+    const start = currentPage * PAGE_SIZE;
+    const pageIds = order.slice(start, start + PAGE_SIZE);
+
+    pageIds.forEach((id, i) => {
+        const index = start + i;   // 全域題號（跨頁連續）
         const item = quizData.find(q => q.id === id);
         if (!item) return;
 
@@ -386,6 +435,8 @@ function render() {
             <div class="card-head">
                 <span class="drag-handle" title="拖曳調整順序">⠿</span>
                 <span class="question-num">Question ${displayNum} ${tagsHtml}</span>
+                <span class="spacer"></span>
+                <button class="btn-copy" data-copy="${item.id}" onclick="copyQuestion(${item.id})" title="複製題目與答案，貼給另一個 AI 詳解">📋 複製</button>
             </div>
             <div class="question-text">${item.q}</div>
             <ul class="options-list">${optionsHtml}</ul>
@@ -403,7 +454,78 @@ function render() {
         // 若此題已作答，重繪後回填詳解
         if (results[item.id] !== undefined) showExplanation(item);
     });
+    renderPagination(totalPages);
     updateScore();
+}
+
+// 分頁控制列
+function renderPagination(totalPages) {
+    if (totalPages <= 1) return;
+    const nav = document.createElement('div');
+    nav.className = 'pagination';
+    nav.innerHTML = `
+        <button class="btn-tool" ${currentPage === 0 ? 'disabled' : ''} onclick="goToPage(0)">« 第一頁</button>
+        <button class="btn-tool" ${currentPage === 0 ? 'disabled' : ''} onclick="goToPage(${currentPage - 1})">‹ 上一頁</button>
+        <span class="page-info">第 ${currentPage + 1} / ${totalPages} 頁</span>
+        <input class="page-jump" type="number" min="1" max="${totalPages}" value="${currentPage + 1}"
+               onchange="goToPage(this.value - 1)" title="跳至頁碼">
+        <button class="btn-tool" ${currentPage >= totalPages - 1 ? 'disabled' : ''} onclick="goToPage(${currentPage + 1})">下一頁 ›</button>
+        <button class="btn-tool" ${currentPage >= totalPages - 1 ? 'disabled' : ''} onclick="goToPage(${totalPages - 1})">末頁 »</button>
+    `;
+    container.appendChild(nav);
+}
+
+function goToPage(p) {
+    const totalPages = Math.ceil(order.length / PAGE_SIZE);
+    p = Number(p);
+    if (Number.isNaN(p)) return;
+    currentPage = Math.max(0, Math.min(p, totalPages - 1));
+    render();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ---------- 複製題目（給另一個 AI 詳解） ---------- */
+function copyQuestion(qId) {
+    const item = quizData.find(q => q.id === qId);
+    if (!item) return;
+    const opts = Object.entries(item.options).map(([k, v]) => `${k}. ${v}`).join('\n');
+    const text =
+`【題目】${item.q}
+
+${opts}
+
+【正確答案】${item.correct}
+
+請用繁體中文詳細解釋為什麼正確答案是 ${item.correct}，並逐一說明其他選項為何不正確。`;
+    const done = () => flashCopyBtn(qId);
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+    } else {
+        fallbackCopy(text, done);
+    }
+}
+
+function fallbackCopy(text, cb) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+    if (cb) cb();
+}
+
+function flashCopyBtn(qId) {
+    const btn = document.querySelector(`.btn-copy[data-copy="${qId}"]`);
+    if (!btn) return;
+    btn.textContent = '✅ 已複製';
+    btn.classList.add('copied');
+    setTimeout(() => {
+        btn.textContent = '📋 複製';
+        btn.classList.remove('copied');
+    }, 1500);
 }
 
 /* ---------- 拖曳排序 ---------- */
@@ -454,12 +576,14 @@ function sortBy(field) {
         });
     }
     order = items.map(q => q.id);
+    currentPage = 0;
     saveSession();
     render();
 }
 
 function shuffleOrder() {
     order = shuffle(order);
+    currentPage = 0;
     saveSession();
     render();
 }

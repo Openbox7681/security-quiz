@@ -15,6 +15,8 @@ A static **CompTIA Security+ (SY0-701)** quiz web app, served via nginx + Docker
 - **File-based question bank** — questions live in `src/questions*.json`. Add a new file and register it in `QUESTION_SOURCES` in `src/index.html`.
 - **Pick exam size at start** — 20 / 50 / 100 / all; questions are randomly sampled (Fisher–Yates).
 - **Reorder & reroll** — drag-and-drop to reorder, sort by id, shuffle, or reroll a fresh random set.
+- **Pagination** — 5 questions per page with first/prev/next/last and a jump-to-page box.
+- **Per-question copy button** — copies the question, options, and correct answer (with a "please explain" prompt) to paste into another AI for a detailed explanation.
 - **Import / export** the question bank as JSON.
 - **Bilingual explanations** — English sentence + 中文註記 in every `exp` field.
 - **Live scoring** with answer locking; the session persists in `localStorage` (refresh keeps the same exam).
