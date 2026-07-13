@@ -227,6 +227,68 @@
             text-align: center;
             font-size: 0.9rem;
         }
+        /* ---- 錯題整理 ---- */
+        .btn-tool.review { background-color: #fef2f2; color: #b91c1c; border-color: #fecaca; }
+        .btn-tool.review:hover { background-color: #fee2e2; }
+        .btn-tool.review:disabled { opacity: 0.5; cursor: not-allowed; }
+        .review-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.55);
+            z-index: 50;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .review-overlay.open { display: block; }
+        .review-panel {
+            background: #fff;
+            max-width: 820px;
+            margin: 20px auto;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        .review-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            position: sticky;
+            top: 0;
+            background: #fff;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .review-head h2 { margin: 0; font-size: 1.25rem; }
+        .review-head .spacer { flex: 1; }
+        .review-item {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .review-item .r-num { font-size: 0.85rem; color: #64748b; font-weight: 600; margin-bottom: 6px; }
+        .review-item .r-q { font-weight: 600; margin-bottom: 10px; }
+        .review-item .r-opt {
+            padding: 8px 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            margin-bottom: 6px;
+            font-size: 0.92rem;
+        }
+        .review-item .r-opt.correct { background: #f0fdf4; border-color: #86efac; color: #166534; font-weight: 600; }
+        .review-item .r-opt.wrong { background: #fef2f2; border-color: #fecaca; color: #b91c1c; }
+        .review-item .r-tag { font-size: 0.75rem; color: #64748b; }
+        .review-item .r-exp {
+            margin-top: 10px;
+            padding: 10px 12px;
+            background: #f8fafc;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .review-empty { text-align: center; color: #16a34a; font-weight: 600; padding: 30px; }
     </style>
 </head>
 <body>
@@ -245,6 +307,7 @@
         <button class="btn-tool" data-size="all" onclick="setSize('all')">全部</button>
         <span class="spacer"></span>
         <span class="score" id="score">答對 0 / 已作答 0</span>
+        <button class="btn-tool review" id="btn-review" onclick="showReview()">📝 錯題整理 (0)</button>
         <button class="btn-tool primary" onclick="reroll()">🎲 重新抽題</button>
     </div>
 
@@ -261,6 +324,19 @@
     </div>
 
     <div id="quiz-container"></div>
+</div>
+
+<!-- 錯題整理面板 -->
+<div class="review-overlay" id="review-overlay" onclick="if(event.target===this)closeReview()">
+    <div class="review-panel">
+        <div class="review-head">
+            <h2>📝 錯題整理</h2>
+            <span class="spacer"></span>
+            <button class="btn-tool" onclick="copyAllWrong()">📋 複製全部錯題</button>
+            <button class="btn-tool primary" onclick="closeReview()">關閉</button>
+        </div>
+        <div id="review-body"></div>
+    </div>
 </div>
 
 <script>
@@ -398,6 +474,20 @@ function updateScore() {
     const correct = Object.values(results).filter(Boolean).length;
     const el = document.getElementById('score');
     if (el) el.textContent = `答對 ${correct} / 已作答 ${answered}（共 ${order.length} 題）`;
+
+    // 更新「錯題整理」按鈕
+    const wrong = wrongIds();
+    const btn = document.getElementById('btn-review');
+    if (btn) {
+        const done = answered >= order.length && order.length > 0;
+        btn.textContent = (done ? '✅ 看結果／錯題整理 ' : '📝 錯題整理 ') + `(${wrong.length})`;
+        btn.disabled = false;
+    }
+}
+
+// 取得目前測驗中「答錯」題目的 id（依作答順序）
+function wrongIds() {
+    return order.filter(id => results[id] === false);
 }
 
 // 依目前 order 渲染所有題目
@@ -497,6 +587,69 @@ function goToPage(p) {
     render();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+/* ---------- 錯題整理（做完後複習答錯的題目） ---------- */
+function showReview() {
+    const body = document.getElementById('review-body');
+    const wrong = wrongIds();
+    const answered = Object.keys(results).length;
+    if (wrong.length === 0) {
+        body.innerHTML = answered === 0
+            ? '<div class="review-empty">還沒有作答任何題目喔！先作答後再回來看錯題整理。</div>'
+            : '<div class="review-empty">🎉 太厲害了！目前沒有答錯的題目。</div>';
+    } else {
+        body.innerHTML = wrong.map(id => {
+            const item = quizData.find(q => q.id === id);
+            const pos = order.indexOf(id) + 1;
+            const userSet = (userAnswers[id] || []).slice().sort().join('');
+            const correctSet = item.correct.split('').sort().join('');
+            const tags = (item.tags || []).map(t => `<span class="r-tag">#${t}</span>`).join(' ');
+            const opts = Object.entries(item.options).map(([k, v]) => {
+                const isCorrect = correctSet.includes(k);
+                const isUserWrong = userSet.includes(k) && !isCorrect;
+                const cls = isCorrect ? ' correct' : (isUserWrong ? ' wrong' : '');
+                const mark = isCorrect ? '　✔ 正解' : (isUserWrong ? '　✗ 你的選擇' : '');
+                return `<div class="r-opt${cls}"><strong>${k}.</strong> ${v}${mark}</div>`;
+            }).join('');
+            return `
+                <div class="review-item">
+                    <div class="r-num">第 ${pos} 題　${tags}</div>
+                    <div class="r-q">${item.q}</div>
+                    ${opts}
+                    <div class="r-exp"><strong>你的答案：${userSet || '（未作答）'}　｜　正確答案：${correctSet}</strong><br>${item.exp}</div>
+                </div>`;
+        }).join('');
+    }
+    document.getElementById('review-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeReview() {
+    document.getElementById('review-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+// 把所有錯題（題目＋選項＋正解＋詳解）複製起來，方便貼給 AI 或存檔
+function copyAllWrong() {
+    const wrong = wrongIds();
+    if (!wrong.length) { alert('目前沒有答錯的題目。'); return; }
+    const text = wrong.map(id => {
+        const item = quizData.find(q => q.id === id);
+        const opts = Object.entries(item.options).map(([k, v]) => `${k}. ${v}`).join('\n');
+        return `【題目】${item.q}\n${opts}\n【正確答案】${item.correct}\n【詳解】${item.exp}`;
+    }).join('\n\n----------\n\n');
+    const done = () => alert(`已複製 ${wrong.length} 題錯題！`);
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+    } else {
+        fallbackCopy(text, done);
+    }
+}
+
+// Esc 關閉錯題整理
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeReview();
+});
 
 /* ---------- 複製題目（給另一個 AI 詳解） ---------- */
 function copyQuestion(qId) {
