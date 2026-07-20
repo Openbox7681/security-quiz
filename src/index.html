@@ -308,6 +308,7 @@
         <span class="spacer"></span>
         <span class="score" id="score">答對 0 / 已作答 0</span>
         <button class="btn-tool review" id="btn-review" onclick="showReview()">📝 錯題整理 (0)</button>
+        <button class="btn-tool" onclick="clearAnswers()">🧹 清除作答</button>
         <button class="btn-tool primary" onclick="reroll()">🎲 重新抽題</button>
     </div>
 
@@ -460,6 +461,20 @@ function setSize(n) {
 function reroll() {
     if (Object.keys(results).length && !confirm('要重新抽題嗎？目前的作答與成績會清除。')) return;
     startSession(examSize);
+}
+
+// 清除作答但保留同一份題目（重做一次）
+function clearAnswers() {
+    if (Object.keys(results).length === 0 && Object.keys(userAnswers).length === 0) {
+        alert('目前還沒有作答紀錄。');
+        return;
+    }
+    if (!confirm('要清除目前的作答與成績嗎？題目與順序會保留，可重新作答一次。')) return;
+    for (const k in userAnswers) delete userAnswers[k];
+    for (const k in results) delete results[k];
+    currentPage = 0;
+    render();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function updateSizeButtons() {
